@@ -1,0 +1,35 @@
+<div
+  class="col-sm-12 col-md-6 col-lg-4 p-2 filtr-item"
+  data-category='all, {{ delimit  .tags ","}}'
+>
+  <div class="card mt-1">
+    <div class="card">
+        <a class="card-header" href="{{ if .repo }}{{ .repo }}{{ else if .url }}{{ .url }}{{ else }}javascript:void(0){{ end }}" {{ if or .repo .url }}target="_blank" rel="noopener"{{ end }}>
+            <div>
+              <div class="d-flex align-items-center justify-content-center">
+                {{ if .logo }}
+                  {{ $logoImage:= resources.Get .logo}}
+                  {{ if $logoImage }}
+                    {{/*  svg don't support "Fit" operation   */}}
+                    {{ if ne $logoImage.MediaType.SubType "svg" }}
+                      {{ $logoImage = $logoImage.Fit "24x24" }}
+                    {{ end }}
+                    <img class="card-img-xs me-3" src="{{ $logoImage.RelPermalink }}" alt="{{ .rank }}" />
+                  {{ end }}
+                {{ end }}
+                <h5 class="card-title mb-0" style="margin-left: 10px;">{{ .rank }}</h5> <!-- Adjust the margin-left value as needed -->
+              </div>
+              <div class="sub-title">
+                <span>{{ .role }}</span>
+                <span>{{ .timeline }}</span>
+              </div>
+            </div>
+          </a>
+          
+      <div class="card-body text-justify pt-1 pb-1">
+        <p>{{ .summary | markdownify }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

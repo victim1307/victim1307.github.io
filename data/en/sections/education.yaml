@@ -1,0 +1,158 @@
+# section information
+section:
+  name: Education
+  id: education
+  template: sections/education.html # Use "sections/education-alt.html for alternate template.
+  enable: true
+  weight: 4
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+degrees:
+# - name: Ph.D in Quantum Cryptography
+#   icon: fa-microscope
+#   timeframe: 2016-2020
+#   institution:
+#     name: ABC University of Technology
+#     url: "#"
+#   grade: #(optional)
+#     scale: CGPA
+#     achieved: 3.6
+#     outOf: 4
+#   publications: #(optional)
+#   - title: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+#     url: "#"
+#   - title: Fusce eu augue ut odio porttitor pulvinar.
+#     url: "#"
+#   - title: Nullam vitae orci tincidunt purus viverra pulvinar.
+#     url: "#"
+- name: B. Tech in Computer Science and Engineering
+  icon: fa-graduation-cap
+  timeframe: 2020-2024
+  institution:
+    name: Amrita Vishwa Vidyapeetham
+    url: "amrita.edu"
+  grade: #(optional)
+    scale: CGPA
+    achieved: 9.3
+    outOf: 10
+  takenCourses: #(optional)
+    # if true, the courses will be rendered as a table otherwise it will render as a list and the grades will be hidden.
+    showGrades: true
+    collapseAfter: 6
+    courses:
+      - name: "==== Security Modules ===="
+      - name: "19CSE335: Ethical Hacking"
+        achieved: 3 (O)
+        outOf: 3
+      - name: "19CSE334: Cryptography"
+        achieved: 3 (O) 
+        outOf: 3
+      - name: "19CSE311: Computer Security"
+        achieved: 3 (O)
+        outOf: 3
+      - name: "==== Software Engineering Modules ===="
+      - name: "19CSE312: Distributed Systems"
+        achieved: 4 (O)
+        outOf: 4
+      
+      - name: "19CSE314: Software Engineering"
+        achieved: 4 (A+)
+        outOf: 4
+
+      - name: "==== Database Modules ===="
+
+      - name: "19CSE202: Database Management System"
+        achieved: 4 (A)
+        outOf: 4
+      - name: "19CSE101: Computer Systems Essentials"
+        achieved: 4 (A)
+        outOf: 4
+
+      - name: "==== Data Structures and Algorithm Modules ===="
+      - name: "19CSE302: Design and Analysis of Algorithms"
+        achieved: 4 (A)
+        outOf: 4
+      - name: "19CSE212: Data Structures and Algorithms"
+        achieved: 4 (A+)
+        outOf: 4
+      - name: "19CSE111: Fundamentals of Data Structures"
+        achieved: 4 (A)
+        outOf: 4
+      - name: "19CSE100: Problem Solving and Algorithmic Thinking"
+        achieved: 3 (A)
+        outOf: 3
+
+      - name: "==== Other CS Modules ===="
+
+      - name: "19CSE301: Computer Networks"
+        achieved: 4 (O)
+        outOf: 4
+
+      - name: "19CSE204: Object Oriented Paradigm"
+        achieved: 4 (A)
+        outOf: 4
+
+      - name: "19CSE213: Operating Systems"
+        achieved: 4 (A)
+        outOf: 4
+
+      - name: "19CSE102: Computer Programming"
+        achieved: 4 (A+)
+        outOf: 4
+
+  # publications: #(optional)
+  # - title: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  #   url: "#"
+  # - title: Fusce eu augue ut odio porttitor pulvinar.
+  #   url: "#"
+  extracurricularActivities: #(optional)
+  - Active member in AYUDH Amritapuri.
+  - Class Representative for 2 years.
+  - Activily Contributed to many social activities.
+  - Organised workshops and events for school students.
+
+
+- name: 11 and 12
+  icon: fa-university
+  timeframe: 2018-2020
+  institution:
+    name: Sri Chaitanya Junior College
+    url: "#"
+  grade: #(optional)
+    scale: Marks
+    achieved: 940
+    outOf: 1000
+  # extracurricularActivities: #(optional)
+  # - In vitae facilisis est, eget porta sem.
+  # - Vestibulum consectetur lorem justo, at laoreet lorem feugiat et.
+  # - Duis sed massa feugiat, ornare justo et, aliquam est.
+  # - Pellentesque ut fringilla magna.
+
+- name: 8th - 10th class
+  icon: fa-school
+  timeframe: 2015-2018
+  institution:
+    name: Sri Chaithanya Techno School
+    url: "#"
+  grade: #(optional)
+    scale: GPA
+    achieved: 9.5
+    outOf: 10
+
+- name: upto 7th class
+  icon: fa-school
+  timeframe: 2015-2018
+  institution:
+    name: Little Flower High School
+    url: "#"
+  grade: #(optional)
+    scale: GPA
+    achieved: 9
+    outOf: 10
+  extracurricularActivities: #(optional)
+  - Ranked Top in many Olympiads and other competitive exams.
+  - Received many awards in Art and Painting competitions.
+  - Participated in many sports and cultural events.
+  - Karate Brown Belt Holder.

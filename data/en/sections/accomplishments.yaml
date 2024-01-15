@@ -1,0 +1,46 @@
+# section information
+section:
+  name: Accomplishments
+  id: accomplishments
+  enable: true
+  weight: 8
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+
+# Your accomplishments
+accomplishments:
+- name: NSE 1 Network Security Associate
+  timeline: "July 2023"
+  organization:
+    name: Fortinet
+    url: https://training.fortinet.com/mod/customcert/verify_certificate.php
+  courseOverview: The NSE 1 Network Security Associate certification provides foundational knowledge in network security, covering essential concepts and skills to understand and address cybersecurity challenges in a professional setting.
+  certificateURL: "https://training.fortinet.com/mod/customcert/verify_certificate.php"
+
+- name: "Google Cloud Fundamentals: Core Infrastructure"
+  timeline: "April 2023"
+  organization:
+    name: Google
+    url: https://www.cloudskillsboost.google/public_profiles/74bdd5b0-6193-4c9d-8467-7472ef33c986/badges/3570543
+  courseOverview: "Google Cloud Fundamentals: Core Infrastructure offers a comprehensive introduction to key services and principles for deploying, managing, and scaling applications on Google Cloud Platform, empowering users in cloud infrastructure management."
+  certificateURL: "https://www.cloudskillsboost.google/public_profiles/74bdd5b0-6193-4c9d-8467-7472ef33c986/badges/3570543"
+
+- name: Cryptography and Information Security
+  timeline: "July 2022"
+  organization:
+    name: Coursera
+    url: https://www.coursera.org/account/accomplishments/verify/36SWRE9HTF4P
+  courseOverview: The Cryptography and Information Security course imparts essential knowledge in safeguarding digital information through cryptographic techniques. Students gain expertise in securing data, ensuring confidentiality, integrity, and authenticity.
+  certificateURL: "https://www.coursera.org/account/accomplishments/verify/36SWRE9HTF4P"
+
+- name: Mathematical Foundations for Cryptography
+  timeline: "July 2023"
+  organization:
+    name: Coursera
+    url: https://www.coursera.org/account/accomplishments/certificate/ALTPXKTBX73V
+  courseOverview: The Mathematical Foundations for Cryptography Coursera course provides a rigorous understanding of mathematical principles essential for cryptography. Topics include number theory, algebra, and discrete mathematics crucial for cryptographic applications.
+  certificateURL: "https://www.coursera.org/account/accomplishments/certificate/ALTPXKTBX73V"
+ 
+

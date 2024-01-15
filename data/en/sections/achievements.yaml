@@ -1,0 +1,64 @@
+# section information
+section:
+  name: Achievements
+  id: achievements
+  enable: true
+  weight: 9
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+# Your achievements achievements
+# achievementsList:
+#   - "Secured 2nd place in Securebug.se CTF Loki 2021
+#   - Secured 4th in RTLxHA CTF"
+#   - Secured 4th in WinjaCTF
+#   - Secured 5th place in S.H.E.L.L. CTF
+#   - Secured 6th place in wtfctf
+#   - Secured 8th place in NorzhCTF 2021
+#   - Secured 4th in WinjaCTF Goa - team achievement
+#   - Secured 2nd place in BSidesSF 2022 - team achievement
+#   - Secured 5nd place in nullcon Goa HackIM CTF 2022 - team achievement
+achievements:
+- title: 2nd Runner up
+  image: /images/sections/achievements/pwc.jpeg
+  summary: I'm absolutely thrilled to share the exciting news that, together with my outstanding teammates Aviral S. and Rishikesh Vankayala and under the invaluable guidance of our incredible mentor, Madhura Narasimhamurthy we've achieved an impressive 2nd Runner up in the "Fiercest Competitor 2.0" hackathon hosted by PwC. This competition brought together 6,000 talented students, and our team excelled, particularly in the cybersecurity-focused challenges! 🥉.
+  url: https://www.instagram.com/p/CyKtpS7BruD/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==
+- title: Achievements Corner | Student Achievement
+  image: /images/sections/achievements/atlassian.jpeg
+  summary: P. Manohar Reddy, a brilliant Computer Science Engineering student from our the School of Computing , has left an indelible mark during his summer internship. We are overjoyed to share that ATLASSIAN, a renowned Australian MNC, has recognized his exceptional skills and dedication, offering him a Pre-Placement Offer for full-time employment starting from July 2024!.
+  url: https://www.linkedin.com/posts/amritacomputing_successstory-proudmoment-amritacomputing-activity-7099608638079606784-ZVNA?utm_source=share&utm_medium=member_desktop
+- title: Best Programmer
+  image: /images/sections/achievements/dev_ctf.jpeg
+  summary: Best Programmer award in DevCTF which is conducted by IIT Delhi.
+- title: Blackhat ASIA
+  image: /images/sections/achievements/blackhat_2.jpeg
+  summary: Exploring Singapore's culture and world of cybersecurity at Black Hat conference was truly eye-opening. From the stunning Marina Bay skyline to innovative security products, our journey was full of inspiration.
+  url: https://www.linkedin.com/posts/manohar-reddy-pagilla_singaporeadventure-blackhatexperience-activity-7095421864612614144--8Tm?utm_source=share&utm_medium=member_desktop
+- title: Finalists
+  image: /images/sections/achievements/isidtu.jpeg
+  summary: Really enjoyed playing ISITDTU CTF finals in Vietnam as part our Team bi0s.
+  url: https://www.linkedin.com/posts/manohar-reddy-pagilla_really-enjoyed-playing-isitdtu-ctf-finals-activity-7028358590625185792-1AwA?utm_source=share&utm_medium=member_desktop
+- title: Workshop
+  image: /images/sections/achievements/workshop.jpg
+  summary: Conducted a workshop on "Introduction to Cybersecurity" for the students of Amrita Vidyalayam, Chavakad.
+  url: https://www.instagram.com/p/CyKtpS7BruD/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==
+- title: Guest Speaker
+  image: /images/sections/achievements/cysec.jpeg
+  summary: Digital Defenders CTF 2023 Masterclass Webinar-8 Cryptography - Part 2 - Samgacchadhwam Series by Mr. Pagilla Manohar Reddy, B.Tech. (CSE) Candidate, Amrita Vishwa Vidyapeetham.
+- title: Awareness Campaign
+  image: /images/sections/achievements/webinar.jpg
+  summary: Conducted an awareness campaign on "Cybersecurity" for the students of Government School, Vallikavu.
+  url: https://www.instagram.com/p/CyKtpS7BruD/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==
+
+
+# ctf:
+# - rank: 2nd
+#   logo: /images/sections/prizes/2nd.webp
+#   summary: 2nd place in Securebug.se CTF Loki 2021
+#   tags: [""]
+#   # 4th in RTLxHA CTF
+# - rank: 4th
+#   logo: /images/sections/prizes/medal.svg
+#   summary: 4th in RTLxHA CTF
+#   tags: [""]

@@ -1,4 +1,0 @@
-This is a Brave Rewards publisher verification file.
-
-Domain: victim1307.github.io
-Token: 3b63482f89b802056cba8d158b95915353648708ed52e6d1198c8658da1e3f5f
