@@ -29,7 +29,7 @@
 
 {{/* apply image processing. don't use "Fit" in svg or gif because its not supported */}}
 {{ if and $authorImage (and (ne $authorImage.MediaType.SubType "svg") ( ne $authorImage.MediaType.SubType "gif")) }}
-  {{ $authorImage = $authorImage.Fit "500x500" }}
+  {{ $authorImage = $authorImage.Fit "750x750" }}
 {{ end }}
 {{/* get file that matches the filename as specified as src="" in shortcode */}}
 {{ $src := resources.Get $backgroundImage }}
@@ -101,39 +101,37 @@
         }
     }
     </style>
-    <span class="on-the-fly-behavior"></span>
-  <div
-    id="homePageBackgroundImageDivStyled"
-    class="background container-fluid"
-  ></div>
-  <div class="container content text-center">
-    <img src="{{ $authorImage.RelPermalink }}"
-      class="rounded-circle mx-auto d-block img-fluid"
-      alt="Author Image"
-    />
-    <h1 class="greeting"> {{ $author.greeting }} {{ $name }}</h1>
-    {{ if $author.subtitle }}
-      <h2 class="greeting-subtitle">{{ $author.subtitle }}</h2>
-    {{ end }}
-    <div class="typing-carousel">
-      <span id="ityped" class="ityped"></span>
-      <span class="ityped-cursor"></span>
-    </div>
-    <ul id="typing-carousel-data">
-      {{ if $author.summary }}
-        {{ range $author.summary }}
-          <li>{{ . }}</li>
-        {{ end}}
-      {{ end }}
-    </ul>
-    {{ if $sections }}
-      {{ range first 1 (where (sort $sections "section.weight") ".section.enable" true) }}
-        {{ $sectionID := replace (lower .section.name) " " "-"  }}
-        {{ if .section.id }}
-          {{ $sectionID = .section.id }}
-        {{ end }}
-        <a href="#{{ $sectionID }}" class="arrow-center" aria-label="{{ i18n "read" }} {{ i18n "more" }} - {{ $name }}"><i class="arrow bounce fa fa-chevron-down"></i></a>
-      {{ end }}
-    {{ end }}
+<span class="on-the-fly-behavior"></span>
+<div id="homePageBackgroundImageDivStyled" class="background container-fluid"></div>
+<div class="container content text-center">
+  <img src="{{ $authorImage.RelPermalink }}"
+    class="mx-auto d-block img-fluid"
+    style="background-color: transparent; width: 250px; height: 250px;"
+    alt="Author Image"
+  />
+  <h1 class="greeting">{{ $author.greeting }} {{ $name }}</h1>
+  {{ if $author.subtitle }}
+    <h2 class="greeting-subtitle">{{ $author.subtitle }}</h2>
+  {{ end }}
+  <div class="typing-carousel">
+    <span id="ityped" class="ityped"></span>
+    <span class="ityped-cursor"></span>
   </div>
+  <ul id="typing-carousel-data">
+    {{ if $author.summary }}
+      {{ range $author.summary }}
+        <li>{{ . }}</li>
+      {{ end}}
+    {{ end }}
+  </ul>
+  {{ if $sections }}
+    {{ range first 1 (where (sort $sections "section.weight") ".section.enable" true) }}
+      {{ $sectionID := replace (lower .section.name) " " "-"  }}
+      {{ if .section.id }}
+        {{ $sectionID = .section.id }}
+      {{ end }}
+      <a href="#{{ $sectionID }}" class="arrow-center" aria-label="{{ i18n "read" }} {{ i18n "more" }} - {{ $name }}"><i class="arrow bounce fa fa-chevron-down"></i></a>
+    {{ end }}
+  {{ end }}
+</div>
 </div>
