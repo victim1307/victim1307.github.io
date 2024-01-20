@@ -428,6 +428,15 @@
   
   
     
+    <li><a class=" list-link" href="/notes/bash/advanced/" title="Advanced">Advanced</a></li>
+  
+
+  
+  
+  
+  
+  
+    
     <li><a class=" list-link" href="/notes/bash/basic/" title="Variables">Variables</a></li>
   
 
@@ -451,6 +460,182 @@
   <div class="content container-fluid" id="content">
     <div class="container-fluid note-card-holder" id="note-card-holder">
       
+      
+        
+          <div class="note-card ">
+    <div class="item">
+        <h5 class="note-title"><span>Variable</span></h5>
+        
+            <div class="card">
+                <div class="card-body"><h1 id="mysql-cheat-sheet">MySQL Cheat Sheet</h1>
+<blockquote>
+<p>Help with SQL commands to interact with a MySQL database</p>
+</blockquote>
+<h3 id="mysql-locations">MySQL Locations</h3>
+<ul>
+<li>Mac             <em>/usr/local/mysql/bin</em></li>
+<li>Windows         <em>/Program Files/MySQL/MySQL <em>version</em>/bin</em></li>
+<li>Xampp           <em>/xampp/mysql/bin</em></li>
+</ul>
+<h3 id="add-mysql-to-your-path">Add mysql to your PATH</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Current Session</span>
+</span></span><span style="display:flex;"><span>export PATH<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>PATH<span style="color:#e6db74">}</span>:/usr/local/mysql/bin
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Permanantly</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;export PATH=&#34;/usr/local/mysql/bin:$PATH&#34;&#39;</span> &gt;&gt; ~/.bash_profile
+</span></span></code></pre></div><p>On Windows - <a href="https://www.qualitestgroup.com/resources/knowledge-center/how-to-guide/add-mysql-path-windows/" target="_blank" rel="noopener">https://www.qualitestgroup.com/resources/knowledge-center/how-to-guide/add-mysql-path-windows/</a></p>
+<h3 id="login">Login</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mysql -u root -p
+</span></span></code></pre></div><h3 id="show-users">Show Users</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">User</span>, <span style="color:#66d9ef">Host</span> <span style="color:#66d9ef">FROM</span> mysql.<span style="color:#66d9ef">user</span>;
+</span></span></code></pre></div><h3 id="create-user">Create User</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">USER</span> <span style="color:#e6db74">&#39;someuser&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;localhost&#39;</span> IDENTIFIED <span style="color:#66d9ef">BY</span> <span style="color:#e6db74">&#39;somepassword&#39;</span>;
+</span></span></code></pre></div><h3 id="grant-all-priveleges-on-all-databases">Grant All Priveleges On All Databases</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">ALL</span> <span style="color:#66d9ef">PRIVILEGES</span> <span style="color:#66d9ef">ON</span> <span style="color:#f92672">*</span> . <span style="color:#f92672">*</span> <span style="color:#66d9ef">TO</span> <span style="color:#e6db74">&#39;someuser&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;localhost&#39;</span>;
+</span></span><span style="display:flex;"><span>FLUSH <span style="color:#66d9ef">PRIVILEGES</span>;
+</span></span></code></pre></div><h3 id="show-grants">Show Grants</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SHOW</span> GRANTS <span style="color:#66d9ef">FOR</span> <span style="color:#e6db74">&#39;someuser&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;localhost&#39;</span>;
+</span></span></code></pre></div><h3 id="remove-grants">Remove Grants</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">REVOKE</span> <span style="color:#66d9ef">ALL</span> <span style="color:#66d9ef">PRIVILEGES</span>, <span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">OPTION</span> <span style="color:#66d9ef">FROM</span> <span style="color:#e6db74">&#39;someuser&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;localhost&#39;</span>;
+</span></span></code></pre></div><h3 id="delete-user">Delete User</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">USER</span> <span style="color:#e6db74">&#39;someuser&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;localhost&#39;</span>;
+</span></span></code></pre></div><h3 id="exit">Exit</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>exit;
+</span></span></code></pre></div><h3 id="show-databases">Show Databases</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SHOW</span> DATABASES
+</span></span></code></pre></div><h3 id="create-database">Create Database</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">DATABASE</span> acme;
+</span></span></code></pre></div><h3 id="delete-database">Delete Database</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">DATABASE</span> acme;
+</span></span></code></pre></div><h3 id="select-database">Select Database</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>USE acme;
+</span></span></code></pre></div><h3 id="create-table">Create Table</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> users(
+</span></span><span style="display:flex;"><span>id INT AUTO_INCREMENT,
+</span></span><span style="display:flex;"><span>   first_name VARCHAR(<span style="color:#ae81ff">100</span>),
+</span></span><span style="display:flex;"><span>   last_name VARCHAR(<span style="color:#ae81ff">100</span>),
+</span></span><span style="display:flex;"><span>   email VARCHAR(<span style="color:#ae81ff">50</span>),
+</span></span><span style="display:flex;"><span>   password VARCHAR(<span style="color:#ae81ff">20</span>),
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">location</span> VARCHAR(<span style="color:#ae81ff">100</span>),
+</span></span><span style="display:flex;"><span>   dept VARCHAR(<span style="color:#ae81ff">100</span>),
+</span></span><span style="display:flex;"><span>   is_admin TINYINT(<span style="color:#ae81ff">1</span>),
+</span></span><span style="display:flex;"><span>   register_date DATETIME,
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>(id)
+</span></span><span style="display:flex;"><span>);
+</span></span></code></pre></div><h3 id="delete--drop-table">Delete / Drop Table</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span> tablename;
+</span></span></code></pre></div><h3 id="show-tables">Show Tables</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SHOW</span> TABLES;
+</span></span></code></pre></div><h3 id="insert-row--record">Insert Row / Record</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> users (first_name, last_name, email, password, <span style="color:#66d9ef">location</span>, dept, is_admin, register_date) <span style="color:#66d9ef">values</span> (<span style="color:#e6db74">&#39;Brad&#39;</span>, <span style="color:#e6db74">&#39;Traversy&#39;</span>, <span style="color:#e6db74">&#39;brad@gmail.com&#39;</span>, <span style="color:#e6db74">&#39;123456&#39;</span>,<span style="color:#e6db74">&#39;Massachusetts&#39;</span>, <span style="color:#e6db74">&#39;development&#39;</span>, <span style="color:#ae81ff">1</span>, now());
+</span></span></code></pre></div><h3 id="insert-multiple-rows">Insert Multiple Rows</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> users (first_name, last_name, email, password, <span style="color:#66d9ef">location</span>, dept,  is_admin, register_date) <span style="color:#66d9ef">values</span> (<span style="color:#e6db74">&#39;Fred&#39;</span>, <span style="color:#e6db74">&#39;Smith&#39;</span>, <span style="color:#e6db74">&#39;fred@gmail.com&#39;</span>, <span style="color:#e6db74">&#39;123456&#39;</span>, <span style="color:#e6db74">&#39;New York&#39;</span>, <span style="color:#e6db74">&#39;design&#39;</span>, <span style="color:#ae81ff">0</span>, now()), (<span style="color:#e6db74">&#39;Sara&#39;</span>, <span style="color:#e6db74">&#39;Watson&#39;</span>, <span style="color:#e6db74">&#39;sara@gmail.com&#39;</span>, <span style="color:#e6db74">&#39;123456&#39;</span>, <span style="color:#e6db74">&#39;New York&#39;</span>, <span style="color:#e6db74">&#39;design&#39;</span>, <span style="color:#ae81ff">0</span>, now()),(<span style="color:#e6db74">&#39;Will&#39;</span>, <span style="color:#e6db74">&#39;Jackson&#39;</span>, <span style="color:#e6db74">&#39;will@yahoo.com&#39;</span>, <span style="color:#e6db74">&#39;123456&#39;</span>, <span style="color:#e6db74">&#39;Rhode Island&#39;</span>, <span style="color:#e6db74">&#39;development&#39;</span>, <span style="color:#ae81ff">1</span>, now()),(<span style="color:#e6db74">&#39;Paula&#39;</span>, <span style="color:#e6db74">&#39;Johnson&#39;</span>, <span style="color:#e6db74">&#39;paula@yahoo.com&#39;</span>, <span style="color:#e6db74">&#39;123456&#39;</span>, <span style="color:#e6db74">&#39;Massachusetts&#39;</span>, <span style="color:#e6db74">&#39;sales&#39;</span>, <span style="color:#ae81ff">0</span>, now()),(<span style="color:#e6db74">&#39;Tom&#39;</span>, <span style="color:#e6db74">&#39;Spears&#39;</span>, <span style="color:#e6db74">&#39;tom@yahoo.com&#39;</span>, <span style="color:#e6db74">&#39;123456&#39;</span>, <span style="color:#e6db74">&#39;Massachusetts&#39;</span>, <span style="color:#e6db74">&#39;sales&#39;</span>, <span style="color:#ae81ff">0</span>, now());
+</span></span></code></pre></div><h3 id="select">Select</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> users;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> first_name, last_name <span style="color:#66d9ef">FROM</span> users;
+</span></span></code></pre></div><h3 id="where-clause">Where Clause</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> users <span style="color:#66d9ef">WHERE</span> <span style="color:#66d9ef">location</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Massachusetts&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> users <span style="color:#66d9ef">WHERE</span> <span style="color:#66d9ef">location</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Massachusetts&#39;</span> <span style="color:#66d9ef">AND</span> dept<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;sales&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> users <span style="color:#66d9ef">WHERE</span> is_admin <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> users <span style="color:#66d9ef">WHERE</span> is_admin <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>;
+</span></span></code></pre></div><h3 id="delete-row">Delete Row</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">DELETE</span> <span style="color:#66d9ef">FROM</span> users <span style="color:#66d9ef">WHERE</span> id <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>;
+</span></span></code></pre></div><h3 id="update-row">Update Row</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">UPDATE</span> users <span style="color:#66d9ef">SET</span> email <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;freddy@gmail.com&#39;</span> <span style="color:#66d9ef">WHERE</span> id <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
+</span></span></code></pre></div><h3 id="add-new-column">Add New Column</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> users <span style="color:#66d9ef">ADD</span> age VARCHAR(<span style="color:#ae81ff">3</span>);
+</span></span></code></pre></div><h3 id="modify-column">Modify Column</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> users <span style="color:#66d9ef">MODIFY</span> <span style="color:#66d9ef">COLUMN</span> age INT(<span style="color:#ae81ff">3</span>);
+</span></span></code></pre></div><h3 id="order-by-sort">Order By (Sort)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> users <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> last_name <span style="color:#66d9ef">ASC</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> users <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> last_name <span style="color:#66d9ef">DESC</span>;
+</span></span></code></pre></div><h3 id="concatenate-columns">Concatenate Columns</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> CONCAT(first_name, <span style="color:#e6db74">&#39; &#39;</span>, last_name) <span style="color:#66d9ef">AS</span> <span style="color:#e6db74">&#39;Name&#39;</span>, dept <span style="color:#66d9ef">FROM</span> users;
+</span></span></code></pre></div><h3 id="select-distinct-rows">Select Distinct Rows</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">DISTINCT</span> <span style="color:#66d9ef">location</span> <span style="color:#66d9ef">FROM</span> users;
+</span></span></code></pre></div><h3 id="between-select-range">Between (Select Range)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> users <span style="color:#66d9ef">WHERE</span> age <span style="color:#66d9ef">BETWEEN</span> <span style="color:#ae81ff">20</span> <span style="color:#66d9ef">AND</span> <span style="color:#ae81ff">25</span>;
+</span></span></code></pre></div><h3 id="like-searching">Like (Searching)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> users <span style="color:#66d9ef">WHERE</span> dept <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;d%&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> users <span style="color:#66d9ef">WHERE</span> dept <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;dev%&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> users <span style="color:#66d9ef">WHERE</span> dept <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;%t&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> users <span style="color:#66d9ef">WHERE</span> dept <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;%e%&#39;</span>;
+</span></span></code></pre></div><h3 id="not-like">Not Like</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> users <span style="color:#66d9ef">WHERE</span> dept <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;d%&#39;</span>;
+</span></span></code></pre></div><h3 id="in">IN</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> users <span style="color:#66d9ef">WHERE</span> dept <span style="color:#66d9ef">IN</span> (<span style="color:#e6db74">&#39;design&#39;</span>, <span style="color:#e6db74">&#39;sales&#39;</span>);
+</span></span></code></pre></div><h3 id="create--remove-index">Create &amp; Remove Index</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">INDEX</span> LIndex <span style="color:#66d9ef">On</span> users(<span style="color:#66d9ef">location</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">INDEX</span> LIndex <span style="color:#66d9ef">ON</span> users;
+</span></span></code></pre></div><h3 id="new-table-with-foreign-key-posts">New Table With Foreign Key (Posts)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> posts(
+</span></span><span style="display:flex;"><span>id INT AUTO_INCREMENT,
+</span></span><span style="display:flex;"><span>   user_id INT,
+</span></span><span style="display:flex;"><span>   title VARCHAR(<span style="color:#ae81ff">100</span>),
+</span></span><span style="display:flex;"><span>   body TEXT,
+</span></span><span style="display:flex;"><span>   publish_date DATETIME <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">CURRENT_TIMESTAMP</span>,
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>(id),
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">FOREIGN</span> <span style="color:#66d9ef">KEY</span> (user_id) <span style="color:#66d9ef">REFERENCES</span> users(id)
+</span></span><span style="display:flex;"><span>);
+</span></span></code></pre></div><h3 id="add-data-to-posts-table">Add Data to Posts Table</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> posts(user_id, title, body) <span style="color:#66d9ef">VALUES</span> (<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;Post One&#39;</span>, <span style="color:#e6db74">&#39;This is post one&#39;</span>),(<span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;Post Two&#39;</span>, <span style="color:#e6db74">&#39;This is post two&#39;</span>),(<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;Post Three&#39;</span>, <span style="color:#e6db74">&#39;This is post three&#39;</span>),(<span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;Post Four&#39;</span>, <span style="color:#e6db74">&#39;This is post four&#39;</span>),(<span style="color:#ae81ff">5</span>, <span style="color:#e6db74">&#39;Post Five&#39;</span>, <span style="color:#e6db74">&#39;This is post five&#39;</span>),(<span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;Post Six&#39;</span>, <span style="color:#e6db74">&#39;This is post six&#39;</span>),(<span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;Post Seven&#39;</span>, <span style="color:#e6db74">&#39;This is post seven&#39;</span>),(<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;Post Eight&#39;</span>, <span style="color:#e6db74">&#39;This is post eight&#39;</span>),(<span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;Post Nine&#39;</span>, <span style="color:#e6db74">&#39;This is post none&#39;</span>),(<span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;Post Ten&#39;</span>, <span style="color:#e6db74">&#39;This is post ten&#39;</span>);
+</span></span></code></pre></div><h3 id="inner-join">INNER JOIN</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span>
+</span></span><span style="display:flex;"><span>  users.first_name,
+</span></span><span style="display:flex;"><span>  users.last_name,
+</span></span><span style="display:flex;"><span>  posts.title,
+</span></span><span style="display:flex;"><span>  posts.publish_date
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> users
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">INNER</span> <span style="color:#66d9ef">JOIN</span> posts
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ON</span> users.id <span style="color:#f92672">=</span> posts.user_id
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> posts.title;
+</span></span></code></pre></div><h3 id="new-table-with-2-foriegn-keys">New Table With 2 Foriegn Keys</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> comments(
+</span></span><span style="display:flex;"><span>	id INT AUTO_INCREMENT,
+</span></span><span style="display:flex;"><span>    post_id INT,
+</span></span><span style="display:flex;"><span>    user_id INT,
+</span></span><span style="display:flex;"><span>    body TEXT,
+</span></span><span style="display:flex;"><span>    publish_date DATETIME <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">CURRENT_TIMESTAMP</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>(id),
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">FOREIGN</span> <span style="color:#66d9ef">KEY</span>(user_id) <span style="color:#66d9ef">references</span> users(id),
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">FOREIGN</span> <span style="color:#66d9ef">KEY</span>(post_id) <span style="color:#66d9ef">references</span> posts(id)
+</span></span><span style="display:flex;"><span>);
+</span></span></code></pre></div><h3 id="add-data-to-comments-table">Add Data to Comments Table</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> comments(post_id, user_id, body) <span style="color:#66d9ef">VALUES</span> (<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;This is comment one&#39;</span>),(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;This is comment two&#39;</span>),(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;This is comment three&#39;</span>),(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;This is comment four&#39;</span>),(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;This is comment five&#39;</span>),(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;This is comment six&#39;</span>),(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;This is comment six&#39;</span>),(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;This is comment seven&#39;</span>),(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;This is comment seven&#39;</span>);
+</span></span></code></pre></div><h3 id="left-join">Left Join</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span>
+</span></span><span style="display:flex;"><span>comments.body,
+</span></span><span style="display:flex;"><span>posts.title
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> comments
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">LEFT</span> <span style="color:#66d9ef">JOIN</span> posts <span style="color:#66d9ef">ON</span> posts.id <span style="color:#f92672">=</span> comments.post_id
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> posts.title;
+</span></span></code></pre></div><h3 id="join-multiple-tables">Join Multiple Tables</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span>
+</span></span><span style="display:flex;"><span>comments.body,
+</span></span><span style="display:flex;"><span>posts.title,
+</span></span><span style="display:flex;"><span>users.first_name,
+</span></span><span style="display:flex;"><span>users.last_name
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> comments
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">INNER</span> <span style="color:#66d9ef">JOIN</span> posts <span style="color:#66d9ef">on</span> posts.id <span style="color:#f92672">=</span> comments.post_id
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">INNER</span> <span style="color:#66d9ef">JOIN</span> users <span style="color:#66d9ef">on</span> users.id <span style="color:#f92672">=</span> comments.user_id
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> posts.title;
+</span></span></code></pre></div><h3 id="aggregate-functions">Aggregate Functions</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">COUNT</span>(id) <span style="color:#66d9ef">FROM</span> users;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">MAX</span>(age) <span style="color:#66d9ef">FROM</span> users;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">MIN</span>(age) <span style="color:#66d9ef">FROM</span> users;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">SUM</span>(age) <span style="color:#66d9ef">FROM</span> users;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> UCASE(first_name), LCASE(last_name) <span style="color:#66d9ef">FROM</span> users;
+</span></span></code></pre></div><h3 id="group-by">Group By</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> age, <span style="color:#66d9ef">COUNT</span>(age) <span style="color:#66d9ef">FROM</span> users <span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> age;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> age, <span style="color:#66d9ef">COUNT</span>(age) <span style="color:#66d9ef">FROM</span> users <span style="color:#66d9ef">WHERE</span> age <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">20</span> <span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> age;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> age, <span style="color:#66d9ef">COUNT</span>(age) <span style="color:#66d9ef">FROM</span> users <span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> age <span style="color:#66d9ef">HAVING</span> <span style="color:#66d9ef">count</span>(age) <span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">2</span>;
+</span></span></code></pre></div></div>
+            </div>
+        
+    </div>
+</div>
+
+
+        
       
         
           <!-- Variable -->
@@ -676,11 +861,6 @@
         
         
       </div>
-    </div>
-    
-    <hr />
-    <div class="container">
-      <p id="disclaimer"><strong>Liability Notice:</strong> This theme is under MIT license. So, you can use it for non-commercial, commercial, or private uses. You can modify or distribute the theme without requiring any permission from the theme author. However, the theme author does not provide any warranty or takes any liability for any issue with the theme.</p>
     </div>
     
     

@@ -6,6 +6,17 @@
     <description>Recent content in Bash Notes on Pagilla Manohar Reddy&#39;s</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language><atom:link href="https://victim1307.github.io/notes/bash/index.xml" rel="self" type="application/rss+xml" /><item>
+      <title>Bash Advanced</title>
+      <link>https://victim1307.github.io/notes/bash/advanced/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://victim1307.github.io/notes/bash/advanced/</guid>
+      <description>Variable MySQL Cheat Sheet Help with SQL commands to interact with a MySQL database
+MySQL Locations Mac /usr/local/mysql/bin Windows /Program Files/MySQL/MySQL version/bin Xampp /xampp/mysql/bin Add mysql to your PATH # Current Session export PATH=${PATH}:/usr/local/mysql/bin # Permanantly echo &amp;#39;export PATH=&amp;#34;/usr/local/mysql/bin:$PATH&amp;#34;&amp;#39; &amp;gt;&amp;gt; ~/.bash_profile On Windows - https://www.qualitestgroup.com/resources/knowledge-center/how-to-guide/add-mysql-path-windows/
+Login mysql -u root -p Show Users SELECT User, Host FROM mysql.user; Create User CREATE USER &amp;#39;someuser&amp;#39;@&amp;#39;localhost&amp;#39; IDENTIFIED BY &amp;#39;somepassword&amp;#39;; Grant All Priveleges On All Databases GRANT ALL PRIVILEGES ON * .</description>
+    </item>
+    
+    <item>
       <title>Bash Variables</title>
       <link>https://victim1307.github.io/notes/bash/basic/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
