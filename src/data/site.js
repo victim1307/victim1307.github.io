@@ -1,46 +1,52 @@
+import authorImage from "../../assets/images/author/Pagilla_Manohar_Reddy.jpeg";
+import atlImage from "../../assets/images/sections/achievements/atlassian.jpeg";
+import blackhatImage from "../../assets/images/sections/achievements/blackhat_2.jpeg";
+import isidtuImage from "../../assets/images/sections/achievements/isidtu.jpeg";
+import pwcImage from "../../assets/images/sections/achievements/pwc.jpeg";
+
 export const navItems = [
-  { label: "Signal", href: "#signal" },
+  { label: "Focus", href: "#signal" },
   { label: "Timeline", href: "#timeline" },
-  { label: "Work", href: "#work" },
+  { label: "Coverage", href: "#coverage" },
   { label: "Writing", href: "#writing" },
-  { label: "Proof", href: "#proof" },
+  { label: "Background", href: "#proof" },
 ];
 
 export const heroStats = [
-  { value: "2025", label: "latest public writing" },
-  { value: "01", label: "indexed research paper" },
-  { value: "9.3", label: "B.Tech CGPA" },
-  { value: "Top 3", label: "hackathon finish" },
+  { value: "2025", label: "recent public reporting" },
+  { value: "04+", label: "visible CloudSEK bylines" },
+  { value: "THREAT", label: "intel-first positioning" },
+  { value: "AUTO", label: "automation-led workflow" },
 ];
 
 export const signalCards = [
   {
-    title: "Current public signal",
+    title: "Current work",
     copy:
-      "Publicly visible recent work points to product and threat-research writing through CloudSEK, backed by earlier application security, cryptography, and CTF work.",
-    pills: ["CloudSEK", "Security Writing", "Threat Research"],
+      "The strongest public signal now is threat intelligence and adversary analysis at CloudSEK, especially reporting on hacktivist ecosystems, campaign behavior, and cyber conflict narratives.",
+    pills: ["CloudSEK", "Threat Intelligence", "Adversary Analysis"],
   },
   {
-    title: "What the portfolio should say",
+    title: "Research approach",
     copy:
-      "You are not just a student portfolio with random projects. The stronger story is security operator, cryptography competitor, builder of reconnaissance tooling, and published technical writer.",
-    pills: ["AppSec", "Recon", "CTF"],
+      "This should read like an analyst-builder portfolio: someone tracking threat actors, monitoring deep and underground communities, and building systems that convert noisy signals into usable intelligence.",
+    pills: ["Automation", "Intel Pipelines", "Cyber Operations"],
   },
   {
-    title: "What it has done till now",
+    title: "Earlier work",
     copy:
-      "Atlassian internship, Team bi0s cryptography leadership, ECC implementation research, hackathon placement, speaking/workshops, and publicly published security articles.",
-    pills: ["Atlassian", "Team bi0s", "Research"],
+      "Older cryptography work still matters as background, but the center of gravity has moved to threat monitoring, hacktivist tracking, cyber campaign analysis, and public intelligence writing.",
+    pills: ["Hacktivism", "Campaign Monitoring", "Threat Research"],
   },
 ];
 
 export const profile = {
   name: "Pagilla Manohar Reddy",
-  title: "Product Security Engineer · Cryptography Competitor · Security Writer",
+  title: "Threat Researcher · Cyber Operations Analyst · Intelligence Automation Builder",
   summary:
-    "I work at the overlap of product security, offensive research, and cryptography. The pattern across the public record is consistent: break systems with intent, build tooling that reduces noise, then explain the findings clearly enough that other people can use them.",
+    "I am a cybersecurity researcher working at the intersection of threat intelligence, cyber operations, and adversary analysis at CloudSEK. My work focuses on tracking hacktivist ecosystems, monitoring emerging cyber campaigns, and analyzing threat actor behavior across deep web and underground communities. Alongside research, I build automation and intelligence infrastructure that turns fragmented threat signals into structured intelligence analysts can act on.",
   image: authorImage,
-  badges: ["CloudSEK", "Team bi0s", "Atlassian", "ECC Research"],
+  badges: ["CloudSEK", "Threat Intelligence", "Hacktivist Monitoring", "Automation"],
   links: [
     { label: "Email", href: "mailto:poimnbmpoff@gmail.com" },
     { label: "GitHub", href: "https://github.com/victim1307" },
@@ -52,50 +58,50 @@ export const profile = {
 export const tabs = {
   now: [
     {
-      label: "Current public role",
-      title: "Research Analyst and published security writer",
+      label: "Current role",
+      title: "Threat researcher with recent public bylines",
       copy:
-        "CloudSEK’s author page identifies Pagilla Manohar Reddy as a Research Analyst and surfaces recent bylined security articles, which is the strongest current public-profile anchor.",
+        "CloudSEK’s author page identifies Pagilla Manohar Reddy as a Threat Researcher and surfaces recent writing on hacktivist operations, cyber conflict, scams, and adversary behavior.",
     },
     {
-      label: "Design direction",
-      title: "Cyber laboratory, not resume wallpaper",
+      label: "Scope",
+      title: "Threat intel with automation in the workflow",
       copy:
-        "The redesign leans into operator energy: signal windows, high-contrast cards, public proof, and concise narratives instead of generic timeline sludge.",
+        "The work is not just reporting. It includes systems that collect, process, and structure large volumes of threat data so investigations can move faster.",
     },
   ],
   built: [
     {
-      label: "Code Spyder",
-      title: "Recon tooling for faster stack and pattern discovery",
+      label: "Automation",
+      title: "Infrastructure that makes threat monitoring scalable",
       copy:
-        "A reconnaissance tool built during product-security work to help identify frameworks, technology choices, and sensitive code patterns faster.",
+        "The strongest current narrative is automation in support of monitoring and analysis: systems that collect large volumes of threat data and turn fragmented activity into structured intelligence.",
     },
     {
-      label: "CryptoLearn",
-      title: "A friendlier learning platform for cryptography",
+      label: "Monitoring",
+      title: "Tracking hacktivist ecosystems and cyber campaigns",
       copy:
-        "Structured to explain concepts, implementation, and practice for people moving into cryptography without flattening the hard parts.",
+        "Public reporting points to work around coordinated hacktivist activity, geopolitical cyber conflicts, influence-style exaggeration, and operational reality behind public claims.",
     },
     {
-      label: "Secure systems work",
-      title: "From secure upload flows to networked and offline sharing projects",
+      label: "Background",
+      title: "Earlier crypto and CTF work remain background, not the headline",
       copy:
-        "The project list consistently shows applied security, systems work, and engineering comfort beyond pure theory.",
+        "Older cryptography research and competition experience still explain the technical base, but they should sit behind the current threat-intel and automation focus.",
     },
   ],
   proof: [
     {
-      label: "Research paper",
-      title: "Attacks on Elliptic Curve Cryptography Implementations in SageMath",
+      label: "Public footprint",
+      title: "Recent public work is concentrated in operational security writing",
       copy:
-        "Indexed on Google Scholar and aligned tightly with the cryptography and implementation-focus narrative the rest of the portfolio should reinforce.",
+        "The current public footprint is article-heavy rather than whitepaper-heavy, which is why the site should foreground current analysis and bylines.",
     },
     {
-      label: "Public writing",
-      title: "Security articles published through CloudSEK in late 2024 and early 2025",
+      label: "Publication context",
+      title: "The 2023 ECC paper is still valid, but it is not the main storyline anymore",
       copy:
-        "These articles are the clearest recent public artifact of ongoing security work and should be given first-class real estate on the homepage.",
+        "Publicly, the most current story is threat intelligence and adversary reporting. The older paper should remain visible as prior research depth, not the first thing a reader sees.",
     },
   ],
 };
@@ -103,69 +109,83 @@ export const tabs = {
 export const timeline = [
   {
     period: "Now",
-    heading: "Public-facing security writing and research",
+    heading: "Threat intelligence, hacktivist monitoring, and adversary analysis",
     body:
-      "Recent public activity centers on CloudSEK bylines, with article topics covering DeepSeek AI security issues and abuse of Google Sheets for command-and-control and payload delivery.",
+      "Current work is best described as monitoring cyber campaigns, investigating coordinated activity, and producing intelligence around threat actors, influence behavior, and geopolitically driven conflict.",
   },
   {
-    period: "2023 - 2024",
-    heading: "Atlassian + Team bi0s + strong academic finish",
+    period: "Public 2025 footprint",
+    heading: "CloudSEK articles on hacktivism, scams, and operational reality",
     body:
-      "Product security internship at Atlassian, cryptography leadership and competition through Team bi0s, and a 9.3 CGPA in Computer Science all reinforce the same core profile.",
+      "Publicly visible 2025 writing includes coverage of the Iran-Israel cyber standoff, the India-Pakistan hacktivist surge, Valentine’s Day cyber scams, and phishing abuse built on Zendesk infrastructure.",
   },
   {
-    period: "Earlier",
-    heading: "Builder phase with applied systems and security projects",
+    period: "Earlier base",
+    heading: "Product security, cryptography, and CTF experience as technical foundation",
     body:
-      "Work spans cryptography learning tools, secure file flows, Android and networking projects, and challenge-driven experimentation.",
+      "Earlier phases include Atlassian experience, Team bi0s and cryptography-heavy work, and the ECC paper. That background still matters, but it now supports a different front-facing story.",
   },
 ];
 
 export const featuredWork = [
   {
-    title: "Code Spyder",
-    eyebrow: "Product Security Tooling",
+    title: "Hacktivist Ecosystem Tracking",
+    eyebrow: "Threat Intel Coverage",
     description:
-      "Recon tool for framework detection, underlying stack mapping, and sensitive-pattern discovery to support smarter pentesting.",
-    tags: ["Recon", "Automation", "AppSec"],
+      "Monitoring campaigns, inflated claims, recycled leaks, and the tactical reality behind hacktivist narratives across geopolitical flashpoints.",
+    tags: ["Hacktivism", "Adversary Intel", "Campaign Tracking"],
   },
   {
-    title: "ECC Attack Research",
-    eyebrow: "Publication",
+    title: "Threat Data Automation",
+    eyebrow: "Infrastructure",
     description:
-      "A focused look at attacks on elliptic-curve cryptography implementations in SageMath, emphasizing implementation failure modes.",
-    tags: ["ECC", "Research", "Cryptography"],
+      "Systems that collect, process, and normalize large volumes of threat data so investigations can move from fragmented signals to structured intelligence.",
+    tags: ["Automation", "Pipelines", "Scalability"],
   },
   {
-    title: "CryptoLearn",
-    eyebrow: "Learning Platform",
+    title: "Adversary Behavior Analysis",
+    eyebrow: "Research Workflow",
     description:
-      "Beginner-friendly platform for cryptography concepts and implementations that still respects the technical depth of the subject.",
-    tags: ["Education", "Python", "Sage"],
+      "Analysis focused on how modern actors actually operate: coordinated cyber activity, influence dynamics, deception, and operational constraints.",
+    tags: ["Threat Actors", "Deep Web", "Underground"],
   },
   {
-    title: "Secure Upload Flow",
-    eyebrow: "Applied Cryptography",
+    title: "ECC Paper",
+    eyebrow: "Archived Publication",
     description:
-      "Secure upload/authentication flow using AES and RSA, built around practical confidentiality and key-handling concerns.",
-    tags: ["AES", "RSA", "Flask"],
+      "The older ECC implementation paper remains useful as evidence of technical depth, but it now sits behind the threat-intel and automation identity.",
+    tags: ["Research", "ECC", "Archive"],
   },
 ];
 
 export const writing = [
   {
-    date: "January 20, 2025",
-    title: "7 Security Issues Found In DeepSeek AI",
-    href: "https://www.cloudsek.com/blog/7-security-issues-found-in-deepseek-ai",
+    date: "June 19, 2025",
+    title: "Part 1: The Iran-Israel Cyber Standoff - The Hacktivist Front",
+    href: "https://www.cloudsek.com/blog/part-1-the-iran-israel-cyber-standoff---the-hacktivist-front",
     summary:
-      "Recent public byline that should sit in the hero flow because it is the clearest signal of current outward-facing work.",
+      "CloudSEK analysis of coordinated pro-Iranian hacktivist activity against Israeli targets, emphasizing exaggerated claims, recycled data, and the operational reality behind the noise.",
   },
   {
-    date: "December 20, 2024",
-    title: "How Threat Actors Abuse Google Sheets for C2 and Malicious Payload Delivery",
-    href: "https://www.cloudsek.com/blog/how-threat-actors-are-abusing-google-sheets-for-command-and-control-and-malicious-payload-delivery",
+    date: "May 11, 2025",
+    title: "Brief Disruptions, Bold Claims: The Tactical Reality Behind the India-Pakistan Hacktivist Surge",
+    href: "https://www.cloudsek.com/blog/brief-disruptions-bold-claims-the-tactical-reality-behind-the-india-pakistan-hacktivist-surge",
     summary:
-      "Strong threat-research topic that helps move the homepage from generic portfolio into current security-operator territory.",
+      "Analysis separating inflated public claims from actual impact in the India-Pakistan cyber conflict, including the role of APT36 and broader hacktivist exaggeration.",
+  },
+  {
+    date: "February 14, 2025",
+    title: "Valentine's Day Cyber Attack Landscape: Exploiting Love Through Digital Deception",
+    href: "https://www.cloudsek.com/blog/valentines-day-cyber-attack-landscape-exploiting-love-through-digital-deception",
+    summary:
+      "Threat-intel framing of seasonal fraud, phishing, impersonation, and scam infrastructure built around Valentine’s Day digital deception.",
+  },
+  {
+    date: "January 20, 2025",
+    title: "Facilitating Phishing and Pig Butchering Activities using Zendesk Infrastructure [Bait & Switch Mode]",
+    href: "https://www.cloudsek.com/blog/facilitating-phishing-and-pig-butchering-activities-using-zendesk-infrastructure-bait-switch-mode",
+    summary:
+      "Investigation into how SaaS infrastructure can be repurposed for phishing and pig-butchering activity, aligning tightly with your automation-heavy threat-research identity.",
   },
   {
     date: "May 5, 2023",
@@ -180,26 +200,21 @@ export const proofCards = [
   {
     image: pwcImage,
     title: "PwC Fiercest Competitor 2.0",
-    text: "2nd runner-up finish in a large hackathon field, with cybersecurity work at the center of the result.",
+    text: "Still useful as proof of earlier public recognition, but now treated as historical context rather than the homepage’s center.",
   },
   {
     image: atlImage,
-    title: "Atlassian Recognition",
-    text: "The internship outcome is strong enough to remain a central proof point in the portfolio narrative.",
+    title: "Atlassian",
+    text: "Important background proof of product-security experience before the shift toward threat intelligence and research-heavy work.",
   },
   {
     image: blackhatImage,
-    title: "Black Hat Asia",
-    text: "Useful visual proof of industry exposure and engagement with the wider security ecosystem.",
+    title: "Security Ecosystem Exposure",
+    text: "Industry-facing events still help prove context and engagement, but they now support the threat-intel story instead of replacing it.",
   },
   {
     image: isidtuImage,
-    title: "CTF Finals",
-    text: "Competitive cryptography and broader CTF work should stay visible because they sharpen the entire profile.",
+    title: "CTF and Crypto Background",
+    text: "Older competition and crypto work stay visible as technical foundation, not as the main present-day identity.",
   },
 ];
-import authorImage from "../../assets/images/author/Pagilla_Manohar_Reddy.jpeg";
-import atlImage from "../../assets/images/sections/achievements/atlassian.jpeg";
-import blackhatImage from "../../assets/images/sections/achievements/blackhat_2.jpeg";
-import isidtuImage from "../../assets/images/sections/achievements/isidtu.jpeg";
-import pwcImage from "../../assets/images/sections/achievements/pwc.jpeg";

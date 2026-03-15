@@ -15,14 +15,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -70,7 +62,7 @@ function App() {
             <div className="space-y-0.5">
               <p className="font-display text-lg font-semibold tracking-tight">{profile.name}</p>
               <p className="text-xs uppercase tracking-[0.24em] text-muted-foreground">
-                Security systems, but sharper
+                Threat intelligence · CloudSEK
               </p>
             </div>
           </a>
@@ -84,33 +76,6 @@ function App() {
           </nav>
 
           <div className="flex items-center gap-3">
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button variant="outline" className="hidden md:inline-flex">
-                  Why this redesign
-                </Button>
-              </DialogTrigger>
-              <DialogContent>
-                <DialogHeader>
-                  <DialogTitle>Why the site now looks like this</DialogTitle>
-                  <DialogDescription>
-                    The public record says security operator, technical writer, builder, and cryptography competitor.
-                    So the UI stops pretending this is a generic resume and leans into signal, proof, and current public work.
-                  </DialogDescription>
-                </DialogHeader>
-                <div className="space-y-4 text-sm leading-7 text-muted-foreground">
-                  <p>
-                    The strongest recent public signal is not coursework. It is published security writing, a research paper,
-                    product-security experience, and competition-heavy cryptography work.
-                  </p>
-                  <p>
-                    The homepage is structured around that: signal, timeline, work, writing, and proof. Every major block is
-                    built with shadcn/ui primitives instead of theme leftovers.
-                  </p>
-                </div>
-              </DialogContent>
-            </Dialog>
-
             <Sheet>
               <SheetTrigger asChild>
                 <Button variant="outline" size="icon" className="lg:hidden">
@@ -151,9 +116,9 @@ function App() {
 
               <div className="space-y-5">
                 <h1 className="max-w-4xl font-display text-5xl font-semibold leading-[0.9] tracking-[-0.06em] sm:text-6xl lg:text-7xl">
-                  Product security,
+                  Threat intelligence,
                   <span className="block bg-gradient-to-r from-emerald-300 via-teal-200 to-amber-200 bg-clip-text text-transparent">
-                    cryptography, and public proof.
+                    adversary analysis, and automation.
                   </span>
                 </h1>
                 <p className="max-w-3xl text-lg leading-8 text-muted-foreground">
@@ -215,10 +180,10 @@ function App() {
                 <CardContent className="relative space-y-5">
                   <div className="grid gap-3 sm:grid-cols-2">
                     {[
-                      { icon: Shield, label: "Operator lens", text: "Product security and application security thinking." },
-                      { icon: BrainCircuit, label: "Crypto depth", text: "Research and competition around cryptographic systems." },
-                      { icon: Radar, label: "Recon builder", text: "Tooling and automation that reduce investigation noise." },
-                      { icon: FileText, label: "Public writing", text: "Recent CloudSEK bylines and indexed research output." },
+                      { icon: Shield, label: "Threat intel lens", text: "Campaign tracking, hacktivist ecosystems, and adversary analysis." },
+                      { icon: BrainCircuit, label: "Analyst workflow", text: "Turning fragmented signals into usable intelligence." },
+                      { icon: Radar, label: "Automation builder", text: "Monitoring systems that make large-scale research operational." },
+                      { icon: FileText, label: "Public writing", text: "Recent CloudSEK bylines and public reporting on active threats." },
                     ].map((item) => (
                       <div key={item.label} className="rounded-[1.4rem] border border-white/10 bg-black/20 p-4">
                         <item.icon className="mb-3 h-5 w-5 text-emerald-300" />
@@ -247,7 +212,7 @@ function App() {
 
           <div className="mt-10 overflow-hidden rounded-full border border-white/10 bg-black/20 py-3">
             <div className="flex min-w-max animate-marquee gap-3 pr-3">
-              {[...profile.badges, ...profile.badges, "CloudSEK Writing", "ECC Paper", "Threat Research", "CTF Finals"].map((item) => (
+              {[...profile.badges, ...profile.badges, "Hacktivist Tracking", "Threat Reporting", "Cyber Operations", "Intel Pipelines"].map((item) => (
                 <Badge key={item} variant="outline" className="ml-3">
                   {item}
                 </Badge>
@@ -258,9 +223,9 @@ function App() {
 
         <section id="signal" className="container py-14">
           <SectionHeading
-            eyebrow="Signal"
-            title="The homepage now tells the story your public record already tells."
-            description="The important shift is from generic portfolio language to current security identity: operator, builder, writer, and cryptography-heavy problem solver."
+            eyebrow="Focus"
+            title="Current work and how it is done."
+            description="The profile now leads with threat intelligence, adversary tracking, and the automation behind large-scale monitoring."
           />
 
           <div className="mt-10 grid gap-5 lg:grid-cols-3">
@@ -292,8 +257,8 @@ function App() {
           <Tabs defaultValue="now" className="space-y-6">
             <SectionHeading
               eyebrow="View"
-              title="What you do now, what you have built, and what proves it."
-              description="This replaces vague about-copy with a sharper split between current signal, built work, and public proof."
+              title="Current role, working model, and background."
+              description="The split here is simple: what the work is now, what supports it, and what older work still matters as context."
             />
             <TabsList className="w-full justify-start overflow-x-auto">
               <TabsTrigger value="now">Now</TabsTrigger>
@@ -326,8 +291,8 @@ function App() {
         <section id="timeline" className="container py-14">
           <SectionHeading
             eyebrow="Timeline"
-            title="The path is clearer when it is shown as phases, not filler."
-            description="This section compresses the story into a sequence the reader can understand in under a minute."
+            title="How the focus changed over time."
+            description="The older security and crypto background is still relevant, but the current center of gravity is threat research and automation."
           />
 
           <div className="mt-10 grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
@@ -339,8 +304,8 @@ function App() {
                   </Badge>
                   <CardTitle>Where the center of gravity really is</CardTitle>
                   <CardDescription className="text-base leading-8">
-                    Product security, threat research, cryptography competition, and public technical writing are the strongest
-                    anchors. The UI and copy now reinforce that instead of scattering attention.
+                    Threat research, adversary monitoring, intelligence automation, and public technical writing are now the
+                    strongest anchors. The UI and copy reinforce that directly.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -368,11 +333,11 @@ function App() {
           </div>
         </section>
 
-        <section id="work" className="container py-14">
+        <section id="coverage" className="container py-14">
           <SectionHeading
-            eyebrow="Work"
-            title="Featured builds chosen for narrative weight, not because they fill a grid."
-            description="These are the pieces that best explain what you build and how you think."
+            eyebrow="Coverage"
+            title="The areas the public work points to."
+            description="These are the themes that show up most clearly in your recent reporting and the way you describe the work."
           />
 
           <div className="mt-10 grid gap-5 md:grid-cols-2">
@@ -407,8 +372,8 @@ function App() {
           <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
             <SectionHeading
               eyebrow="Writing"
-              title="Recent public writing gets its own command center."
-              description="That is the most current public evidence of ongoing security work, so it should not be buried below hobby projects."
+              title="Recent public writing."
+              description="This is the clearest public record of the work right now, so it sits ahead of older project material."
             />
 
             <MotionCard>
@@ -417,9 +382,9 @@ function App() {
                   <Badge variant="secondary" className="w-fit">
                     Published online
                   </Badge>
-                  <CardTitle>Articles, paper, and what they imply</CardTitle>
+                  <CardTitle>Articles and publications</CardTitle>
                   <CardDescription className="text-base leading-8">
-                    The latest public signal is technical writing through CloudSEK, plus the earlier ECC paper.
+                    The latest public signal is operational writing through CloudSEK, with the older ECC paper kept as background context.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -439,7 +404,7 @@ function App() {
                           </h3>
                           <p className="mt-3 text-sm leading-7 text-muted-foreground">{item.summary}</p>
                           <div className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-emerald-200">
-                            Open source
+                            Open
                             <ArrowUpRight className="h-4 w-4" />
                           </div>
                         </a>
@@ -454,9 +419,9 @@ function App() {
 
         <section id="proof" className="container py-14">
           <SectionHeading
-            eyebrow="Proof"
-            title="Archived wins and public moments still matter, but they now support the current story."
-            description="Older highlights remain valuable as proof, not as the entire homepage."
+            eyebrow="Background"
+            title="Older work that still adds context."
+            description="These items stay in the site because they explain the technical base, even though they are no longer the main focus."
           />
 
           <div className="mt-10 grid gap-5 md:grid-cols-2">
@@ -486,14 +451,14 @@ function App() {
               <CardContent className="grid gap-8 p-8 lg:grid-cols-[1fr_auto] lg:items-center">
                 <div className="space-y-4">
                   <Badge variant="secondary" className="w-fit">
-                    End state
+                    Contact
                   </Badge>
                   <h2 className="max-w-3xl font-display text-4xl font-semibold tracking-[-0.05em]">
-                    The site now reads like a security profile with actual signal.
+                    Threat intelligence, cyber operations, and automation work.
                   </h2>
                   <p className="max-w-3xl text-base leading-8 text-muted-foreground">
-                    Built with shadcn/ui components, aimed at GitHub Pages static hosting, and reorganized around what the
-                    public record says you are doing now and what you have already proven.
+                    For current work, the strongest public references are the CloudSEK articles and the operational research
+                    themes they cover.
                   </p>
                 </div>
                 <div className="flex flex-wrap gap-3">
