@@ -6,7 +6,6 @@ import {
   Menu,
   Radar,
   Shield,
-  Sparkles,
 } from "lucide-react";
 
 import { SectionHeading } from "@/components/section-heading";
@@ -107,8 +106,8 @@ function App() {
               className="space-y-8"
             >
               <div className="flex flex-wrap gap-3">
-                {profile.badges.map((item, index) => (
-                  <Badge key={item} variant={index % 2 ? "secondary" : "default"}>
+                {profile.badges.map((item) => (
+                  <Badge key={item} variant="outline">
                     {item}
                   </Badge>
                 ))}
@@ -157,12 +156,11 @@ function App() {
             </motion.div>
 
             <MotionCard delay={0.15} className="relative">
-              <Card className="relative overflow-hidden">
+                <Card className="relative overflow-hidden">
                 <div className="absolute inset-x-6 top-6 h-24 rounded-full bg-emerald-400/30 blur-3xl animate-pulsebeam" />
                 <CardHeader className="relative">
                   <div className="flex items-center justify-between">
-                    <Badge>Live profile</Badge>
-                    <Badge variant="outline">Shadcn UI</Badge>
+                    <Badge variant="secondary">Profile</Badge>
                   </div>
                   <div className="flex items-center gap-4">
                     <Avatar className="h-24 w-24 border border-white/10 shadow-glow">
@@ -234,8 +232,7 @@ function App() {
                 <Card className="h-full">
                   <CardHeader>
                     <div className="flex items-center justify-between">
-                      <Sparkles className="h-5 w-5 text-amber-200" />
-                      <Badge variant={index === 1 ? "secondary" : "default"}>{card.pills[0]}</Badge>
+                      <Badge variant={index === 1 ? "secondary" : "outline"}>{card.pills[0]}</Badge>
                     </div>
                     <CardTitle>{card.title}</CardTitle>
                     <CardDescription className="text-base leading-8">{card.copy}</CardDescription>
@@ -300,7 +297,7 @@ function App() {
               <Card className="h-full">
                 <CardHeader>
                   <Badge variant="secondary" className="w-fit">
-                    Profile summary
+                    Summary
                   </Badge>
                   <CardTitle>Where the center of gravity really is</CardTitle>
                   <CardDescription className="text-base leading-8">
@@ -345,10 +342,10 @@ function App() {
               <MotionCard key={item.title} delay={index * 0.08}>
                 <Card className="group h-full overflow-hidden">
                   <CardHeader>
-                    <Badge variant={index % 2 ? "secondary" : "default"} className="w-fit">
+                    <Badge variant={index % 2 ? "secondary" : "outline"} className="w-fit">
                       {item.eyebrow}
                     </Badge>
-                    <CardTitle className="transition group-hover:text-emerald-200">
+                    <CardTitle className="transition group-hover:text-foreground">
                       {item.title}
                     </CardTitle>
                     <CardDescription className="text-base leading-8">
@@ -380,7 +377,7 @@ function App() {
               <Card className="overflow-hidden">
                 <CardHeader>
                   <Badge variant="secondary" className="w-fit">
-                    Published online
+                    Selected writing
                   </Badge>
                   <CardTitle>Articles and publications</CardTitle>
                   <CardDescription className="text-base leading-8">

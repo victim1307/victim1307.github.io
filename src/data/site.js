@@ -27,9 +27,9 @@ export const signalCards = [
     pills: ["CloudSEK", "Threat Intelligence", "Adversary Analysis"],
   },
   {
-    title: "Research approach",
+    title: "Research model",
     copy:
-      "This should read like an analyst-builder portfolio: someone tracking threat actors, monitoring deep and underground communities, and building systems that convert noisy signals into usable intelligence.",
+      "The work combines monitoring of threat actors and underground communities with automation that turns large, messy data into usable intelligence.",
     pills: ["Automation", "Intel Pipelines", "Cyber Operations"],
   },
   {
@@ -65,7 +65,7 @@ export const tabs = {
     },
     {
       label: "Scope",
-      title: "Threat intel with automation in the workflow",
+      title: "Threat intelligence with automation in the workflow",
       copy:
         "The work is not just reporting. It includes systems that collect, process, and structure large volumes of threat data so investigations can move faster.",
     },
@@ -95,7 +95,7 @@ export const tabs = {
       label: "Public footprint",
       title: "Recent public work is concentrated in operational security writing",
       copy:
-        "The current public footprint is article-heavy rather than whitepaper-heavy, which is why the site should foreground current analysis and bylines.",
+        "The current public footprint is concentrated in articles and reporting rather than formal publications, so recent writing carries more weight than older research output.",
     },
     {
       label: "Publication context",
