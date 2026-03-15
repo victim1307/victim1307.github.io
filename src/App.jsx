@@ -17,7 +17,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   featuredWork,
   heroStats,
@@ -30,13 +29,13 @@ import {
   writing,
 } from "@/data/site";
 
-function MotionCard({ children, delay = 0, className = "" }) {
+function MotionBlock({ children, delay = 0, className = "" }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 28 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.25 }}
-      transition={{ duration: 0.55, delay }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.45, delay }}
       className={className}
     >
       {children}
@@ -44,37 +43,68 @@ function MotionCard({ children, delay = 0, className = "" }) {
   );
 }
 
+function LinkList() {
+  return (
+    <div className="flex flex-wrap gap-3">
+      {profile.links.map((link) => (
+        <a
+          key={link.label}
+          href={link.href}
+          target={link.href.startsWith("http") ? "_blank" : undefined}
+          rel="noreferrer"
+          className="inline-flex items-center gap-2 rounded-full border border-border/80 px-4 py-2 text-sm text-muted-foreground transition hover:border-emerald-300/30 hover:text-foreground"
+        >
+          {link.label}
+          <ArrowUpRight className="h-3.5 w-3.5" />
+        </a>
+      ))}
+    </div>
+  );
+}
+
 function App() {
+  const leadWriting = writing[0];
+  const secondaryWriting = writing.slice(1);
+
   return (
     <div className="relative min-h-screen overflow-hidden bg-background text-foreground">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(32,201,151,0.18),transparent_25%),radial-gradient(circle_at_85%_15%,rgba(255,184,76,0.16),transparent_20%),linear-gradient(180deg,rgba(8,15,24,0.96),rgba(7,10,16,1))]" />
-      <div className="pointer-events-none absolute inset-0 bg-grid bg-[size:52px_52px] opacity-[0.08]" />
-      <div className="pointer-events-none absolute left-[-8rem] top-24 h-72 w-72 rounded-full bg-emerald-400/25 blur-3xl" />
-      <div className="pointer-events-none absolute right-[-5rem] top-48 h-80 w-80 rounded-full bg-amber-300/20 blur-3xl" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_12%,rgba(112,255,203,0.08),transparent_24%),radial-gradient(circle_at_88%_16%,rgba(130,173,255,0.08),transparent_20%),linear-gradient(180deg,rgba(8,11,18,0.96),rgba(8,11,18,1))]" />
+      <div className="pointer-events-none absolute inset-0 bg-grid bg-[size:72px_72px] opacity-[0.045]" />
+      <div className="pointer-events-none absolute inset-y-0 left-[6%] hidden w-px bg-white/6 xl:block" />
+      <div className="pointer-events-none absolute inset-y-0 right-[6%] hidden w-px bg-white/6 xl:block" />
 
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-background/70 backdrop-blur-2xl">
-        <div className="container flex h-20 items-center justify-between">
-          <a href="#top" className="flex items-center gap-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-300 via-orange-400 to-emerald-400 font-display text-lg font-bold text-slate-950">
+      <header className="sticky top-0 z-50 border-b border-white/8 bg-background/82 backdrop-blur-2xl">
+        <div className="container flex h-16 items-center justify-between">
+          <a href="#top" className="flex min-w-0 items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full border border-emerald-300/25 bg-emerald-300/8 font-display text-sm font-semibold text-emerald-200">
               PMR
             </div>
-            <div className="space-y-0.5">
-              <p className="font-display text-lg font-semibold tracking-tight">{profile.name}</p>
-              <p className="text-xs uppercase tracking-[0.24em] text-muted-foreground">
-                Threat intelligence · CloudSEK
+            <div className="min-w-0">
+              <p className="truncate font-display text-base font-semibold tracking-tight">
+                {profile.name}
+              </p>
+              <p className="truncate text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+                Threat Researcher at CloudSEK
               </p>
             </div>
           </a>
 
-          <nav className="hidden items-center gap-6 lg:flex">
+          <nav className="hidden items-center gap-7 lg:flex">
             {navItems.map((item) => (
-              <a key={item.href} href={item.href} className="text-sm font-medium text-muted-foreground transition hover:text-foreground">
+              <a
+                key={item.href}
+                href={item.href}
+                className="text-sm font-medium text-muted-foreground transition hover:text-foreground"
+              >
                 {item.label}
               </a>
             ))}
           </nav>
 
           <div className="flex items-center gap-3">
+            <Button asChild variant="outline" className="hidden md:inline-flex">
+              <a href="/files/Pagilla_Manohar_Reddy_Resume.pdf">Resume</a>
+            </Button>
             <Sheet>
               <SheetTrigger asChild>
                 <Button variant="outline" size="icon" className="lg:hidden">
@@ -82,8 +112,8 @@ function App() {
                   <span className="sr-only">Open navigation</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent>
-                <div className="mt-10 flex flex-col gap-4">
+              <SheetContent className="border-white/10 bg-[#0d121a]/96">
+                <div className="mt-12 flex flex-col gap-5">
                   {navItems.map((item) => (
                     <a key={item.href} href={item.href} className="text-lg font-medium text-foreground">
                       {item.label}
@@ -97,380 +127,360 @@ function App() {
       </header>
 
       <main id="top" className="relative z-10">
-        <section className="container py-16 md:py-24">
-          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.65 }}
-              className="space-y-8"
-            >
-              <div className="flex flex-wrap gap-3">
-                {profile.badges.map((item) => (
-                  <Badge key={item} variant="outline">
-                    {item}
-                  </Badge>
-                ))}
-              </div>
-
-              <div className="space-y-5">
-                <h1 className="max-w-4xl font-display text-5xl font-semibold leading-[0.9] tracking-[-0.06em] sm:text-6xl lg:text-7xl">
-                  Threat intelligence,
-                  <span className="block bg-gradient-to-r from-emerald-300 via-teal-200 to-amber-200 bg-clip-text text-transparent">
-                    adversary analysis, and automation.
-                  </span>
-                </h1>
-                <p className="max-w-3xl text-lg leading-8 text-muted-foreground">
-                  {profile.summary}
-                </p>
-              </div>
-
-              <div className="flex flex-wrap gap-3">
-                <Button asChild size="lg">
-                  <a href="/files/Pagilla_Manohar_Reddy_Resume.pdf">
-                    Open resume
-                    <ArrowUpRight className="h-4 w-4" />
-                  </a>
-                </Button>
-                <Button asChild size="lg" variant="outline">
-                  <a href="mailto:poimnbmpoff@gmail.com">Start a conversation</a>
-                </Button>
-              </div>
-
-              <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-                {heroStats.map((stat, index) => (
-                  <MotionCard key={stat.label} delay={index * 0.08}>
-                    <Card className="overflow-hidden">
-                      <CardContent className="p-5">
-                        <p className="font-display text-3xl font-semibold tracking-tight text-foreground">
-                          {stat.value}
-                        </p>
-                        <p className="mt-2 text-sm uppercase tracking-[0.18em] text-muted-foreground">
-                          {stat.label}
-                        </p>
-                      </CardContent>
-                    </Card>
-                  </MotionCard>
-                ))}
-              </div>
-            </motion.div>
-
-            <MotionCard delay={0.15} className="relative">
-                <Card className="relative overflow-hidden">
-                <div className="absolute inset-x-6 top-6 h-24 rounded-full bg-emerald-400/30 blur-3xl animate-pulsebeam" />
-                <CardHeader className="relative">
-                  <div className="flex items-center justify-between">
-                    <Badge variant="secondary">Profile</Badge>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <Avatar className="h-24 w-24 border border-white/10 shadow-glow">
-                      <AvatarImage src={profile.image} alt={profile.name} />
-                      <AvatarFallback>PMR</AvatarFallback>
-                    </Avatar>
-                    <div className="space-y-1">
-                      <CardTitle className="text-3xl">{profile.name}</CardTitle>
-                      <CardDescription className="max-w-sm text-base leading-7">
-                        {profile.title}
-                      </CardDescription>
-                    </div>
+        <section className="container py-10 md:py-14">
+          <div className="grid gap-8 xl:grid-cols-[280px_minmax(0,1fr)]">
+            <MotionBlock className="xl:sticky xl:top-24 xl:h-fit">
+              <Card className="overflow-hidden border-white/10 bg-white/[0.03]">
+                <CardHeader className="space-y-5 p-6">
+                  <Avatar className="h-28 w-28 rounded-[1.75rem] border border-white/10">
+                    <AvatarImage src={profile.image} alt={profile.name} />
+                    <AvatarFallback>PMR</AvatarFallback>
+                  </Avatar>
+                  <div className="space-y-2">
+                    <CardTitle className="text-3xl leading-tight">{profile.name}</CardTitle>
+                    <CardDescription className="text-sm leading-7">
+                      {profile.title}
+                    </CardDescription>
                   </div>
                 </CardHeader>
-                <CardContent className="relative space-y-5">
-                  <div className="grid gap-3 sm:grid-cols-2">
+                <CardContent className="space-y-6 p-6 pt-0">
+                  <div className="grid gap-3">
                     {[
-                      { icon: Shield, label: "Threat intel lens", text: "Campaign tracking, hacktivist ecosystems, and adversary analysis." },
-                      { icon: BrainCircuit, label: "Analyst workflow", text: "Turning fragmented signals into usable intelligence." },
-                      { icon: Radar, label: "Automation builder", text: "Monitoring systems that make large-scale research operational." },
-                      { icon: FileText, label: "Public writing", text: "Recent CloudSEK bylines and public reporting on active threats." },
-                    ].map((item) => (
-                      <div key={item.label} className="rounded-[1.4rem] border border-white/10 bg-black/20 p-4">
-                        <item.icon className="mb-3 h-5 w-5 text-emerald-300" />
-                        <p className="font-medium text-foreground">{item.label}</p>
-                        <p className="mt-1 text-sm leading-6 text-muted-foreground">{item.text}</p>
+                      ["Current", "Threat intelligence, cyber operations, adversary analysis"],
+                      ["Focus", "Hacktivist ecosystems, campaigns, underground monitoring"],
+                      ["Method", "Automation, structured collection, analyst-facing systems"],
+                    ].map(([label, value]) => (
+                      <div key={label} className="rounded-[1.2rem] border border-white/8 bg-white/[0.02] p-4">
+                        <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">{label}</p>
+                        <p className="mt-2 text-sm leading-6 text-foreground/90">{value}</p>
                       </div>
                     ))}
                   </div>
+                  <Separator className="bg-white/8" />
+                  <LinkList />
+                </CardContent>
+              </Card>
+            </MotionBlock>
 
-                  <Separator />
+            <div className="space-y-14">
+              <MotionBlock className="grid gap-8 xl:grid-cols-[1.2fr_0.8fr]">
+                <div className="space-y-8">
+                  <div className="flex flex-wrap gap-2">
+                    {profile.badges.map((item) => (
+                      <Badge key={item} variant="outline" className="rounded-full border-white/10 bg-white/[0.02] text-[10px] tracking-[0.2em] text-foreground/75">
+                        {item}
+                      </Badge>
+                    ))}
+                  </div>
+
+                  <div className="space-y-5">
+                    <p className="text-xs uppercase tracking-[0.28em] text-muted-foreground">
+                      Personal site
+                    </p>
+                    <h1 className="max-w-4xl font-display text-5xl font-semibold leading-[0.92] tracking-[-0.06em] sm:text-6xl lg:text-7xl">
+                      Threat intelligence,
+                      <span className="block text-foreground/70">
+                        adversary tracking,
+                      </span>
+                      <span className="block text-emerald-200">automation.</span>
+                    </h1>
+                    <p className="max-w-3xl text-lg leading-8 text-muted-foreground">
+                      {profile.summary}
+                    </p>
+                  </div>
 
                   <div className="flex flex-wrap gap-3">
-                    {profile.links.map((link) => (
-                      <Button key={link.label} asChild variant="ghost" className="rounded-full px-0 text-muted-foreground hover:text-foreground">
-                        <a href={link.href} target={link.href.startsWith("http") ? "_blank" : undefined} rel="noreferrer">
-                          {link.label}
-                          <ArrowUpRight className="h-4 w-4" />
-                        </a>
-                      </Button>
-                    ))}
+                    <Button asChild size="lg">
+                      <a href="/files/Pagilla_Manohar_Reddy_Resume.pdf">
+                        Resume
+                        <ArrowUpRight className="h-4 w-4" />
+                      </a>
+                    </Button>
+                    <Button asChild size="lg" variant="outline">
+                      <a href="#writing">Recent writing</a>
+                    </Button>
                   </div>
-                </CardContent>
-              </Card>
-            </MotionCard>
-          </div>
+                </div>
 
-          <div className="mt-10 overflow-hidden rounded-full border border-white/10 bg-black/20 py-3">
-            <div className="flex min-w-max animate-marquee gap-3 pr-3">
-              {[...profile.badges, ...profile.badges, "Hacktivist Tracking", "Threat Reporting", "Cyber Operations", "Intel Pipelines"].map((item) => (
-                <Badge key={item} variant="outline" className="ml-3">
-                  {item}
-                </Badge>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="signal" className="container py-14">
-          <SectionHeading
-            eyebrow="Focus"
-            title="Current work and how it is done."
-            description="The profile now leads with threat intelligence, adversary tracking, and the automation behind large-scale monitoring."
-          />
-
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
-            {signalCards.map((card, index) => (
-              <MotionCard key={card.title} delay={index * 0.08}>
-                <Card className="h-full">
-                  <CardHeader>
-                    <div className="flex items-center justify-between">
-                      <Badge variant={index === 1 ? "secondary" : "outline"}>{card.pills[0]}</Badge>
-                    </div>
-                    <CardTitle>{card.title}</CardTitle>
-                    <CardDescription className="text-base leading-8">{card.copy}</CardDescription>
-                  </CardHeader>
-                  <CardContent className="flex flex-wrap gap-2">
-                    {card.pills.map((pill) => (
-                      <Badge key={pill} variant="outline">
-                        {pill}
-                      </Badge>
-                    ))}
-                  </CardContent>
-                </Card>
-              </MotionCard>
-            ))}
-          </div>
-        </section>
-
-        <section className="container py-14">
-          <Tabs defaultValue="now" className="space-y-6">
-            <SectionHeading
-              eyebrow="View"
-              title="Current role, working model, and background."
-              description="The split here is simple: what the work is now, what supports it, and what older work still matters as context."
-            />
-            <TabsList className="w-full justify-start overflow-x-auto">
-              <TabsTrigger value="now">Now</TabsTrigger>
-              <TabsTrigger value="built">Built</TabsTrigger>
-              <TabsTrigger value="proof">Proof</TabsTrigger>
-            </TabsList>
-
-            {Object.entries(tabs).map(([key, items]) => (
-              <TabsContent key={key} value={key}>
-                <div className="grid gap-5 lg:grid-cols-2">
-                  {items.map((item, index) => (
-                    <MotionCard key={item.title} delay={index * 0.07}>
-                      <Card className="h-full">
-                        <CardHeader>
-                          <Badge className="w-fit" variant="outline">
-                            {item.label}
-                          </Badge>
-                          <CardTitle>{item.title}</CardTitle>
-                          <CardDescription className="text-base leading-8">{item.copy}</CardDescription>
-                        </CardHeader>
+                <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-1">
+                  {heroStats.map((stat, index) => (
+                    <MotionBlock key={stat.label} delay={index * 0.05}>
+                      <Card className="border-white/10 bg-white/[0.03]">
+                        <CardContent className="p-5">
+                          <p className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+                            {stat.label}
+                          </p>
+                          <p className="mt-4 font-display text-4xl font-semibold tracking-tight">
+                            {stat.value}
+                          </p>
+                        </CardContent>
                       </Card>
-                    </MotionCard>
+                    </MotionBlock>
                   ))}
                 </div>
-              </TabsContent>
-            ))}
-          </Tabs>
-        </section>
+              </MotionBlock>
 
-        <section id="timeline" className="container py-14">
-          <SectionHeading
-            eyebrow="Timeline"
-            title="How the focus changed over time."
-            description="The older security and crypto background is still relevant, but the current center of gravity is threat research and automation."
-          />
+              <section id="writing" className="space-y-8">
+                <SectionHeading
+                  eyebrow="Writing"
+                  title="Recent public writing"
+                  description="Recent CloudSEK articles are the clearest public record of the work right now."
+                />
 
-          <div className="mt-10 grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
-            <MotionCard>
-              <Card className="h-full">
-                <CardHeader>
-                  <Badge variant="secondary" className="w-fit">
-                    Summary
-                  </Badge>
-                  <CardTitle>Where the center of gravity really is</CardTitle>
-                  <CardDescription className="text-base leading-8">
-                    Threat research, adversary monitoring, intelligence automation, and public technical writing are now the
-                    strongest anchors. The UI and copy reinforce that directly.
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-            </MotionCard>
+                <div className="grid gap-6 xl:grid-cols-[1.05fr_0.95fr]">
+                  <MotionBlock>
+                    <Card className="h-full border-white/10 bg-[#0f151d]">
+                      <CardHeader className="space-y-4 p-8">
+                        <div className="flex items-center justify-between gap-4">
+                          <Badge variant="secondary" className="rounded-full">
+                            Featured article
+                          </Badge>
+                          <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                            {leadWriting.date}
+                          </p>
+                        </div>
+                        <CardTitle className="max-w-2xl text-4xl leading-tight">
+                          {leadWriting.title}
+                        </CardTitle>
+                        <CardDescription className="max-w-2xl text-base leading-8">
+                          {leadWriting.summary}
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent className="p-8 pt-0">
+                        <Button asChild>
+                          <a href={leadWriting.href} target="_blank" rel="noreferrer">
+                            Read article
+                            <ArrowUpRight className="h-4 w-4" />
+                          </a>
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  </MotionBlock>
 
-            <MotionCard delay={0.1}>
-              <Accordion type="single" collapsible className="space-y-4">
-                {timeline.map((item, index) => (
-                  <AccordionItem key={item.period} value={item.period}>
-                    <AccordionTrigger className="text-lg">
-                      <div className="flex flex-col text-left">
-                        <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{item.period}</span>
-                        <span className="mt-1 font-display text-2xl font-semibold tracking-tight">
-                          {item.heading}
-                        </span>
-                      </div>
-                    </AccordionTrigger>
-                    <AccordionContent className="text-base leading-8">
-                      {item.body}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </MotionCard>
-          </div>
-        </section>
+                  <MotionBlock delay={0.08}>
+                    <Card className="border-white/10 bg-white/[0.03]">
+                      <CardHeader className="p-6 pb-4">
+                        <CardTitle className="text-2xl">Archive</CardTitle>
+                        <CardDescription className="text-sm leading-7">
+                          CloudSEK bylines and earlier publication work.
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent className="p-6 pt-0">
+                        <ScrollArea className="h-[32rem] pr-3">
+                          <div className="space-y-3">
+                            {secondaryWriting.map((item) => (
+                              <a
+                                key={item.title}
+                                href={item.href}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="block rounded-[1.2rem] border border-white/8 bg-white/[0.02] p-5 transition hover:border-emerald-300/20 hover:bg-white/[0.04]"
+                              >
+                                <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+                                  {item.date}
+                                </p>
+                                <h3 className="mt-2 font-display text-2xl font-medium leading-snug tracking-tight">
+                                  {item.title}
+                                </h3>
+                                <p className="mt-3 text-sm leading-7 text-muted-foreground">
+                                  {item.summary}
+                                </p>
+                              </a>
+                            ))}
+                          </div>
+                        </ScrollArea>
+                      </CardContent>
+                    </Card>
+                  </MotionBlock>
+                </div>
+              </section>
 
-        <section id="coverage" className="container py-14">
-          <SectionHeading
-            eyebrow="Coverage"
-            title="The areas the public work points to."
-            description="These are the themes that show up most clearly in your recent reporting and the way you describe the work."
-          />
+              <section id="signal" className="space-y-8">
+                <SectionHeading
+                  eyebrow="Focus"
+                  title="Current work and research model"
+                  description="The profile leads with threat intelligence, adversary tracking, and the automation behind large-scale monitoring."
+                />
 
-          <div className="mt-10 grid gap-5 md:grid-cols-2">
-            {featuredWork.map((item, index) => (
-              <MotionCard key={item.title} delay={index * 0.08}>
-                <Card className="group h-full overflow-hidden">
-                  <CardHeader>
-                    <Badge variant={index % 2 ? "secondary" : "outline"} className="w-fit">
-                      {item.eyebrow}
-                    </Badge>
-                    <CardTitle className="transition group-hover:text-foreground">
-                      {item.title}
-                    </CardTitle>
-                    <CardDescription className="text-base leading-8">
-                      {item.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="flex flex-wrap gap-2">
-                    {item.tags.map((tag) => (
-                      <Badge key={tag} variant="outline">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </CardContent>
-                </Card>
-              </MotionCard>
-            ))}
-          </div>
-        </section>
+                <div className="grid gap-5 lg:grid-cols-3">
+                  {signalCards.map((card, index) => (
+                    <MotionBlock key={card.title} delay={index * 0.06}>
+                      <Card className="h-full border-white/10 bg-white/[0.03]">
+                        <CardHeader>
+                          <Badge variant="outline" className="w-fit rounded-full border-white/10 bg-white/[0.02]">
+                            {card.pills[0]}
+                          </Badge>
+                          <CardTitle className="text-3xl">{card.title}</CardTitle>
+                          <CardDescription className="text-base leading-8">
+                            {card.copy}
+                          </CardDescription>
+                        </CardHeader>
+                        <CardContent className="flex flex-wrap gap-2">
+                          {card.pills.slice(1).map((pill) => (
+                            <Badge key={pill} variant="outline" className="rounded-full border-white/10 bg-transparent">
+                              {pill}
+                            </Badge>
+                          ))}
+                        </CardContent>
+                      </Card>
+                    </MotionBlock>
+                  ))}
+                </div>
+              </section>
 
-        <section id="writing" className="container py-14">
-          <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
-            <SectionHeading
-              eyebrow="Writing"
-              title="Recent public writing."
-              description="This is the clearest public record of the work right now, so it sits ahead of older project material."
-            />
+              <section id="coverage" className="space-y-8">
+                <SectionHeading
+                  eyebrow="Coverage"
+                  title="Research areas"
+                  description="Themes that show up most clearly in the current public work."
+                />
 
-            <MotionCard>
-              <Card className="overflow-hidden">
-                <CardHeader>
-                  <Badge variant="secondary" className="w-fit">
-                    Selected writing
-                  </Badge>
-                  <CardTitle>Articles and publications</CardTitle>
-                  <CardDescription className="text-base leading-8">
-                    The latest public signal is operational writing through CloudSEK, with the older ECC paper kept as background context.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ScrollArea className="h-[26rem] pr-4">
-                    <div className="space-y-4">
-                      {writing.map((item) => (
-                        <a
-                          key={item.title}
-                          href={item.href}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="block rounded-[1.4rem] border border-white/10 bg-background/40 p-5 transition hover:border-emerald-300/40 hover:bg-background/70"
-                        >
-                          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{item.date}</p>
-                          <h3 className="mt-2 font-display text-2xl font-semibold tracking-tight">
+                <div className="overflow-hidden rounded-[1.6rem] border border-white/10">
+                  {featuredWork.map((item, index) => (
+                    <MotionBlock key={item.title} delay={index * 0.05}>
+                      <div className="grid gap-4 border-b border-white/8 bg-white/[0.02] px-6 py-6 last:border-b-0 md:grid-cols-[180px_minmax(0,1fr)_auto] md:items-start">
+                        <div>
+                          <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+                            {item.eyebrow}
+                          </p>
+                        </div>
+                        <div className="space-y-3">
+                          <h3 className="font-display text-3xl font-medium tracking-tight">
                             {item.title}
                           </h3>
-                          <p className="mt-3 text-sm leading-7 text-muted-foreground">{item.summary}</p>
-                          <div className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-emerald-200">
-                            Open
-                            <ArrowUpRight className="h-4 w-4" />
+                          <p className="max-w-3xl text-sm leading-7 text-muted-foreground">
+                            {item.description}
+                          </p>
+                        </div>
+                        <div className="flex flex-wrap gap-2 md:justify-end">
+                          {item.tags.map((tag) => (
+                            <Badge key={tag} variant="outline" className="rounded-full border-white/10 bg-transparent">
+                              {tag}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                    </MotionBlock>
+                  ))}
+                </div>
+              </section>
+
+              <section id="timeline" className="space-y-8">
+                <SectionHeading
+                  eyebrow="Timeline"
+                  title="How the focus changed over time"
+                  description="The earlier security and crypto background still matters, but the current center of gravity is threat research and automation."
+                />
+
+                <div className="grid gap-6 xl:grid-cols-[0.85fr_1.15fr]">
+                  <MotionBlock>
+                    <Card className="h-full border-white/10 bg-white/[0.03]">
+                      <CardHeader>
+                        <CardTitle className="text-3xl">Current emphasis</CardTitle>
+                        <CardDescription className="text-base leading-8">
+                          Threat research, adversary monitoring, intelligence automation, and public technical writing are now the main anchors.
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent className="space-y-4">
+                        {[
+                          { icon: Shield, label: "Threat intelligence", text: "Campaign tracking, actor behavior, and hacktivist ecosystems." },
+                          { icon: BrainCircuit, label: "Analysis", text: "Converting fragmented activity into clear investigative narratives." },
+                          { icon: Radar, label: "Automation", text: "Infrastructure that makes collection and analysis operational." },
+                          { icon: FileText, label: "Writing", text: "Public reporting that reflects current research direction." },
+                        ].map((item) => (
+                          <div key={item.label} className="flex gap-4 rounded-[1.2rem] border border-white/8 bg-white/[0.02] p-4">
+                            <item.icon className="mt-0.5 h-4 w-4 shrink-0 text-emerald-200" />
+                            <div>
+                              <p className="font-medium">{item.label}</p>
+                              <p className="mt-1 text-sm leading-6 text-muted-foreground">{item.text}</p>
+                            </div>
                           </div>
-                        </a>
+                        ))}
+                      </CardContent>
+                    </Card>
+                  </MotionBlock>
+
+                  <MotionBlock delay={0.08}>
+                    <div className="space-y-4">
+                      {timeline.map((item) => (
+                        <Card key={item.period} className="border-white/10 bg-white/[0.03]">
+                          <CardHeader className="pb-4">
+                            <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+                              {item.period}
+                            </p>
+                            <CardTitle className="text-3xl">{item.heading}</CardTitle>
+                          </CardHeader>
+                          <CardContent>
+                            <p className="text-sm leading-7 text-muted-foreground">{item.body}</p>
+                          </CardContent>
+                        </Card>
                       ))}
                     </div>
-                  </ScrollArea>
-                </CardContent>
-              </Card>
-            </MotionCard>
-          </div>
-        </section>
-
-        <section id="proof" className="container py-14">
-          <SectionHeading
-            eyebrow="Background"
-            title="Older work that still adds context."
-            description="These items stay in the site because they explain the technical base, even though they are no longer the main focus."
-          />
-
-          <div className="mt-10 grid gap-5 md:grid-cols-2">
-            {proofCards.map((card, index) => (
-              <MotionCard key={card.title} delay={index * 0.08}>
-                <Card className="h-full overflow-hidden">
-                  <div className="aspect-[16/10] overflow-hidden">
-                    <img
-                      src={card.image}
-                      alt={card.title}
-                      className="h-full w-full object-cover transition duration-500 hover:scale-105"
-                    />
-                  </div>
-                  <CardHeader>
-                    <CardTitle>{card.title}</CardTitle>
-                    <CardDescription className="text-base leading-8">{card.text}</CardDescription>
-                  </CardHeader>
-                </Card>
-              </MotionCard>
-            ))}
-          </div>
-        </section>
-
-        <section className="container py-16">
-          <MotionCard>
-            <Card className="overflow-hidden bg-gradient-to-br from-emerald-400/10 via-background/80 to-amber-300/10">
-              <CardContent className="grid gap-8 p-8 lg:grid-cols-[1fr_auto] lg:items-center">
-                <div className="space-y-4">
-                  <Badge variant="secondary" className="w-fit">
-                    Contact
-                  </Badge>
-                  <h2 className="max-w-3xl font-display text-4xl font-semibold tracking-[-0.05em]">
-                    Threat intelligence, cyber operations, and automation work.
-                  </h2>
-                  <p className="max-w-3xl text-base leading-8 text-muted-foreground">
-                    For current work, the strongest public references are the CloudSEK articles and the operational research
-                    themes they cover.
-                  </p>
+                  </MotionBlock>
                 </div>
-                <div className="flex flex-wrap gap-3">
-                  <Button asChild size="lg">
-                    <a href="mailto:poimnbmpoff@gmail.com">Reach out</a>
-                  </Button>
-                  <Button asChild size="lg" variant="outline">
-                    <a href="https://github.com/victim1307" target="_blank" rel="noreferrer">
-                      GitHub
-                    </a>
-                  </Button>
+              </section>
+
+              <section id="proof" className="space-y-8">
+                <SectionHeading
+                  eyebrow="Background"
+                  title="Older work that still adds context"
+                  description="These items stay because they explain the technical base, even though they are no longer the main focus."
+                />
+
+                <div className="grid gap-5 md:grid-cols-2">
+                  {proofCards.map((card, index) => (
+                    <MotionBlock key={card.title} delay={index * 0.06}>
+                      <Card className="h-full overflow-hidden border-white/10 bg-white/[0.03]">
+                        <div className="aspect-[16/10] overflow-hidden border-b border-white/8">
+                          <img
+                            src={card.image}
+                            alt={card.title}
+                            className="h-full w-full object-cover grayscale-[15%] transition duration-500 hover:scale-[1.03]"
+                          />
+                        </div>
+                        <CardHeader>
+                          <CardTitle className="text-3xl">{card.title}</CardTitle>
+                          <CardDescription className="text-base leading-8">
+                            {card.text}
+                          </CardDescription>
+                        </CardHeader>
+                      </Card>
+                    </MotionBlock>
+                  ))}
                 </div>
-              </CardContent>
-            </Card>
-          </MotionCard>
+              </section>
+
+              <section className="pb-20">
+                <MotionBlock>
+                  <Card className="border-white/10 bg-white/[0.03]">
+                    <CardContent className="grid gap-8 p-8 lg:grid-cols-[1fr_auto] lg:items-center">
+                      <div className="space-y-4">
+                        <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+                          Contact
+                        </p>
+                        <h2 className="max-w-3xl font-display text-4xl font-semibold tracking-[-0.05em]">
+                          Threat intelligence, cyber operations, and automation work
+                        </h2>
+                        <p className="max-w-3xl text-base leading-8 text-muted-foreground">
+                          For current work, the strongest public references are the CloudSEK articles and the operational research themes they cover.
+                        </p>
+                      </div>
+                      <div className="flex flex-wrap gap-3">
+                        <Button asChild size="lg">
+                          <a href="mailto:poimnbmpoff@gmail.com">Email</a>
+                        </Button>
+                        <Button asChild size="lg" variant="outline">
+                          <a href="https://github.com/victim1307" target="_blank" rel="noreferrer">
+                            GitHub
+                          </a>
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </MotionBlock>
+              </section>
+            </div>
+          </div>
         </section>
       </main>
     </div>

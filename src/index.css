@@ -6,26 +6,26 @@
 
 @layer base {
   :root {
-    --background: 218 48% 6%;
-    --foreground: 210 40% 96%;
-    --card: 220 37% 9%;
-    --card-foreground: 210 40% 96%;
-    --popover: 222 34% 10%;
-    --popover-foreground: 210 40% 96%;
-    --primary: 161 86% 44%;
-    --primary-foreground: 225 39% 8%;
-    --secondary: 39 100% 62%;
-    --secondary-foreground: 228 33% 10%;
-    --muted: 222 29% 14%;
-    --muted-foreground: 214 18% 70%;
-    --accent: 219 25% 18%;
-    --accent-foreground: 210 40% 98%;
+    --background: 220 26% 6%;
+    --foreground: 210 20% 94%;
+    --card: 222 20% 9%;
+    --card-foreground: 210 20% 94%;
+    --popover: 222 20% 9%;
+    --popover-foreground: 210 20% 94%;
+    --primary: 160 63% 63%;
+    --primary-foreground: 220 30% 8%;
+    --secondary: 220 13% 16%;
+    --secondary-foreground: 210 20% 94%;
+    --muted: 220 16% 12%;
+    --muted-foreground: 214 12% 65%;
+    --accent: 221 17% 14%;
+    --accent-foreground: 210 20% 94%;
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 98%;
-    --border: 220 20% 22%;
-    --input: 220 20% 20%;
-    --ring: 161 86% 44%;
-    --radius: 1.5rem;
+    --border: 220 16% 18%;
+    --input: 220 16% 18%;
+    --ring: 160 63% 63%;
+    --radius: 1.25rem;
   }
 
   * {
@@ -38,9 +38,14 @@
 
   body {
     @apply min-h-screen bg-background font-body text-foreground antialiased;
+    font-feature-settings: "ss01" 1, "cv01" 1;
   }
 
   a {
     @apply transition-colors;
+  }
+
+  ::selection {
+    @apply bg-emerald-300/20 text-foreground;
   }
 }
