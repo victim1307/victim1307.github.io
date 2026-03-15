@@ -5,18 +5,18 @@ import isidtuImage from "../../assets/images/sections/achievements/isidtu.jpeg";
 import pwcImage from "../../assets/images/sections/achievements/pwc.jpeg";
 
 export const navItems = [
-  { label: "Focus", href: "#signal" },
-  { label: "Timeline", href: "#timeline" },
-  { label: "Coverage", href: "#coverage" },
   { label: "Writing", href: "#writing" },
+  { label: "Practice", href: "#signal" },
+  { label: "Coverage", href: "#coverage" },
+  { label: "Trajectory", href: "#timeline" },
   { label: "Background", href: "#proof" },
 ];
 
 export const heroStats = [
-  { value: "2025", label: "recent public reporting" },
-  { value: "04+", label: "visible CloudSEK bylines" },
-  { value: "THREAT", label: "intel-first positioning" },
-  { value: "AUTO", label: "automation-led workflow" },
+  { value: "2025", label: "current article footprint" },
+  { value: "04+", label: "recent public bylines" },
+  { value: "CloudSEK", label: "current platform" },
+  { value: "Automation", label: "research workflow" },
 ];
 
 export const signalCards = [

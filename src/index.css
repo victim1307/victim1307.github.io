@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -6,26 +6,26 @@
 
 @layer base {
   :root {
-    --background: 220 26% 6%;
-    --foreground: 210 20% 94%;
-    --card: 222 20% 9%;
-    --card-foreground: 210 20% 94%;
-    --popover: 222 20% 9%;
-    --popover-foreground: 210 20% 94%;
-    --primary: 160 63% 63%;
-    --primary-foreground: 220 30% 8%;
-    --secondary: 220 13% 16%;
-    --secondary-foreground: 210 20% 94%;
-    --muted: 220 16% 12%;
-    --muted-foreground: 214 12% 65%;
-    --accent: 221 17% 14%;
-    --accent-foreground: 210 20% 94%;
+    --background: 225 24% 5%;
+    --foreground: 220 17% 93%;
+    --card: 225 20% 8%;
+    --card-foreground: 220 17% 93%;
+    --popover: 225 20% 8%;
+    --popover-foreground: 220 17% 93%;
+    --primary: 220 18% 92%;
+    --primary-foreground: 225 24% 7%;
+    --secondary: 223 16% 14%;
+    --secondary-foreground: 220 17% 93%;
+    --muted: 223 16% 11%;
+    --muted-foreground: 220 10% 66%;
+    --accent: 224 16% 13%;
+    --accent-foreground: 220 17% 93%;
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 98%;
-    --border: 220 16% 18%;
-    --input: 220 16% 18%;
-    --ring: 160 63% 63%;
-    --radius: 1.25rem;
+    --border: 223 14% 18%;
+    --input: 223 14% 18%;
+    --ring: 220 18% 92%;
+    --radius: 1.4rem;
   }
 
   * {
@@ -38,7 +38,10 @@
 
   body {
     @apply min-h-screen bg-background font-body text-foreground antialiased;
-    font-feature-settings: "ss01" 1, "cv01" 1;
+    font-feature-settings: "ss01" 1, "cv01" 1, "cv11" 1;
+    background-image:
+      radial-gradient(circle at top, rgba(255, 255, 255, 0.045), transparent 0, transparent 34%),
+      linear-gradient(180deg, rgba(8, 10, 14, 0.98), rgba(8, 10, 14, 1));
   }
 
   a {
@@ -46,6 +49,6 @@
   }
 
   ::selection {
-    @apply bg-emerald-300/20 text-foreground;
+    @apply bg-white/20 text-foreground;
   }
 }

@@ -86,8 +86,8 @@ export default {
         grid: "linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px)",
       },
       fontFamily: {
-        display: ['"Space Grotesk"', "system-ui", "sans-serif"],
-        body: ['"Inter"', "system-ui", "sans-serif"],
+        display: ['"Manrope"', "system-ui", "sans-serif"],
+        body: ['"Manrope"', "system-ui", "sans-serif"],
       },
       boxShadow: {
         glow: "0 0 0 1px rgba(255,255,255,0.06), 0 20px 80px rgba(0,0,0,0.45)",
