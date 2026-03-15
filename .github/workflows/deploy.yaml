@@ -1,44 +1,38 @@
-name: Deploy to Github Pages
+name: Deploy to GitHub Pages
 
-# run when a commit is pushed to "source" branch
 on:
   push:
     branches:
-    - main
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-    # checkout to the commit that has been pushed
-    - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
 
-    - name: Setup Hugo
-      uses: peaceiris/actions-hugo@v2.6.0
-      with:
-        hugo-version: 'latest'
-        extended: true
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
 
-    - name: Update Hugo Modules
-      run: hugo mod tidy
+      - name: Upload static site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
 
-    - name: Setup Node
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18
-
-    - name: Install node modules
-      run: |
-        hugo mod npm pack
-        npm install        
-
-    - name: Build
-      run: hugo --minify
-
-    # push the generated content into the `gh-pages` branch.
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3.9.0
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_branch: gh-pages
-        publish_dir: ./public
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
